@@ -1,0 +1,15 @@
+<template>
+
+</template>
+
+<script>
+// 注册
+Vue.component('my-component', {
+  template: '<div>A custom component!</div>'
+})
+
+</script>
+
+<style>
+
+</style>

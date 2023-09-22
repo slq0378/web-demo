@@ -1,0 +1,9 @@
+div {
+
+  width: 100%;
+  height: 200px;
+  background-color: lightblue;
+}
+div:last-child {
+  background-color: lightcoral;
+}

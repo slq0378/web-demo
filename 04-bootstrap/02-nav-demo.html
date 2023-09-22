@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>响应式布局</title>
+    <style>
+      html {
+        font-size: 75px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      /*
+      指定父容器，通过媒体查询改变父容器宽度，以改变内部元素布局样式 
+        父容器版心的尺寸划分
+        + 超小屏幕（手机，小于 768px）：设置宽度为 100%
+        + 小屏幕（平板，大于等于 768px）：设置宽度为 750px
+        + 中等屏幕（桌面显示器，大于等于 992px）：宽度设置为 970px
+        + 大屏幕（大桌面显示器，大于等于 1200px）：宽度设置为 1170px 
+    */
+      .container {
+        background-color: lightblue;
+        height: 10rem;
+        margin: 0 auto;
+        font-size: 0.1867rem;
+      }
+      ul {
+        list-style: none;
+        margin: 0 auto;
+      }
+      ul li {
+        box-sizing: border-box;
+        /* display: inline-block; */
+        float: left;
+        width: 1.25rem;
+        height: 0.44rem;
+        line-height: 0.44rem;
+        text-align: center;
+        border-right: 1px solid red;
+        background-color: lightcoral;
+      }
+      @media screen and (max-width: 767px) {
+        .container {
+          width: 100%;
+        }
+        ul li {
+          width: 33.33%;
+        }
+      }
+      @media screen and (min-width: 767px) {
+        .container {
+          width: 768px;
+        }
+        ul li {
+          width: 1.024rem;
+        }
+      }
+      @media screen and (min-width: 992px) {
+        .container {
+          width: 970px;
+        }
+        ul li {
+          width: 1.2933rem;
+        }
+      }
+      @media screen and (min-width: 1200px) {
+        .container {
+          width: 1170px;
+        }
+        ul li {
+          width: 1.56rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul>
+        <li><a href="#">测试1</a></li>
+        <li><a href="#">测试2</a></li>
+        <li><a href="#">测试3</a></li>
+        <li><a href="#">测试4</a></li>
+        <li><a href="#">测试5</a></li>
+        <li><a href="#">测试6</a></li>
+        <li><a href="#">测试7</a></li>
+        <li><a href="#">测试8</a></li>
+        <li><a href="#">测试9</a></li>
+        <li><a href="#">测试10</a></li>
+        <!-- <li><a href="#">测试11</a></li>
+        <li><a href="#">测试12</a></li>
+        <li><a href="#">测试13</a></li> -->
+      </ul>
+    </div>
+  </body>
+</html>

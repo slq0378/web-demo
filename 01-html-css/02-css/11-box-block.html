@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>block-box </title>
+    <style type="text/css">
+    .demo1 {
+        width: 100px;
+        height: 100px;
+        border-color: green;
+        border-width: 1px;
+        border-style: dashed;
+        /*border: 1px solid grey;*/
+    }
+
+    .demo2 {
+        width: 100px;
+        border: 1px solid red;
+        height: 100px;
+        /*padding: 20px; 上又下左 内边距都是20*/
+        /*padding: 20px 10px; 上下20px 左右10px*/
+        /*padding: 20px 10px 10px; 上20px 左右 10px 下10px */
+        padding: 10px 20px 10px 30px;
+        /*上10px 右20px 下10px 左30px*/
+    }
+
+    .demo3 {
+        width: 100px;
+        border: 1px solid blue;
+        height: 100px;
+        /*margin: 20px; 上又下左 内边距都是20*/
+        /*margin: 20px 10px; 上下20px 左右10px*/
+        /*margin: 20px 10px 10px; 上20px 左右 10px 下10px */
+        margin: 10px 20px 10px 30px;
+        /*上10px 右20px 下10px 左30px*/
+    }
+    .demo4 {
+        /*width: 100px;*/
+        background: red;
+        border: 1px solid red;
+        /*height: 100px;*/
+        /*padding: 20px; 上又下左 内边距都是20*/
+        /*padding: 20px 10px; 上下20px 左右10px*/
+        /*padding: 20px 10px 10px; 上20px 左右 10px 下10px */
+        margin: 100px 100px;
+        /*上10px 右20px 下10px 左30px*/
+    }
+    </style>
+</head>
+
+<body>
+	<br/>
+    <div class="demo1">
+        边框
+    </div><br/>
+    <div class="demo2">
+        内边距
+    </div><br/>
+    <div class="demo3">
+        外边距
+    </div>
+    <p class="demo4"></p>
+</body>
+
+</html>

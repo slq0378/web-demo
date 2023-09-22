@@ -1,0 +1,615 @@
+/*首页样式*/
+.main {
+    width: 980px;
+    height: 456px;
+    margin: 10px 0 0 220px;
+}
+
+.main .main_hot {
+    position: relative;
+    float: left;
+    width: 721px;
+    height: 455px;
+}
+
+.arrow_l,
+.arrow_r {
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    width: 24px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.main .main_hot img {
+    width: 100%;
+}
+
+.main_hot .arrow_l {
+    left: 0;
+    padding-left: 3px;
+}
+
+.main_hot .arrow_r {
+    right: 0;
+    padding-right: 3px;
+}
+
+.circle {
+    position: absolute;
+    bottom: 15px;
+    left: 30px;
+}
+
+.circle li {
+    float: left;
+    margin: 0 3px;
+    width: 8px;
+    height: 8px;
+
+    border: 2px solid rgba(255, 255, 255, .7);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.current {
+    background: #fff;
+}
+
+.newsflash {
+    float: left;
+    margin-left: 10px;
+    width: 246px;
+    height: 455px;
+    background: green;
+    border: 1px solid #ccc;
+}
+
+.main_hot .indicate {
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+}
+
+.main_hot .indicate li {
+    float: left;
+    margin: 0 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.main_hot .current {
+    background: #fff;
+}
+
+
+.main .main_news {
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    width: 236px;
+    height: 455px;
+
+}
+
+.main_news_top {
+    margin-left: -1px;
+    border: 1px solid #ccc;
+}
+
+.main_news_top dt {
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.main_news_top dt a {
+    float: right;
+}
+
+.main_news_top dd {
+    overflow: hidden;
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.main_news_mid li {
+    float: left;
+    margin-left: -1px;
+    margin-top: -1px;
+    width: 58px;
+    height: 66px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.main_news_mid i {
+    display: block;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.main_news_bottom {
+    margin-left: -1px;
+    margin-top: 10px;
+}
+
+.main_news_bottom img {
+    width: 100%;
+}
+
+/*recommend*/
+.recommend {
+    margin-top: 10px;
+}
+
+.recommend_title {
+    /*margin-right: 10px;*/
+    width: 220px;
+    height: 160px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+
+}
+
+.recommend_title i {
+    display: block;
+    margin-top: 40px;
+    font-size: 50px;
+    color: #fff;
+}
+
+.recommend_title a {
+    color: #fff;
+    font-size: 20px;
+}
+
+.recommend_other dl {
+    width: 105px;
+    height: 160px;
+    text-align: center;
+    background: #eaeaea;
+}
+
+.recommend_other dt {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+}
+
+.recommend_other dd {
+    margin-top: 10px;
+}
+
+.recommend_other .rec1 {
+    color: red;
+}
+
+.recommend_other .rec2 {
+    color: blue;
+}
+
+.recommend_other .rec3 {
+    margin-top: 30px;
+    color: green;
+}
+
+/*tendency*/
+.tendency {
+    position: relative;
+    margin-top: 10px;
+    height: 226px;
+}
+
+.tendency_title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    line-height: 30px;
+}
+
+.tendency_change {
+    position: absolute;
+    top: 0;
+    right: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.tendency_detail {
+    position: relative;
+    top: 30px;
+    border: 1px solid #ccc;
+}
+
+.tendency_item {
+    float: left;
+    padding-top: 20px;
+    width: 198px;
+    text-align: center;
+}
+
+.tendency_item img {
+    width: 100px;
+}
+
+.tendency_item .desc {
+    margin-top: 10px;
+    text-align: left;
+    overflow: hidden;
+    margin: 0 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.tendency_item .price {
+    margin: 10px 0;
+    color: red;
+}
+
+/*amusing*/
+.amusing {
+    /*height: 400px;*/
+    margin-top: 10px;
+
+}
+
+.amusing-title {
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+}
+
+.amusing ul {
+    border: 1px solid #ccc;
+}
+
+.amusing li {
+    float: left;
+}
+
+.amusing-tui {
+    position: relative;
+    width: 396px;
+    height: 400px;
+    background: #fff;
+}
+
+.amusing-tui p {
+    margin: 20px 0 0 20px;
+    font-size: 16px;
+    color: #0099cc;
+}
+
+.amusing-tui img {
+    position: absolute;
+    right: 50px;
+    bottom: 20px;
+    width: 242px;
+    height: 280px;
+}
+
+.amusing-hao {
+    /*width: 230px;*/
+    height: 400px;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+}
+
+.amusing-hao p {
+    margin: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: 700;
+    border-bottom: 1px solid #eee;
+}
+
+.amusing-hao-item {
+    position: relative;
+    height: 200px;
+}
+
+.amusing-hao dl {
+    position: relative;
+    float: left;
+    top: 50%;
+    margin-top: -60px;
+    width: 110px;
+    margin-left: 5px;
+}
+
+.amusing-hao dt:first-child {
+    margin-top: 20px;
+    color: #000;
+    font-weight: 700;
+}
+
+.amusing-hao dt:nth-child(2) {
+    color: #666;
+}
+
+.amusing-hao dt:nth-child(3) {
+    color: red;
+}
+
+.amusing-hao img {
+    position: relative;
+    float: left;
+    top: 50%;
+    margin-top: -60px;
+    width: 115px;
+}
+
+.amusing-pin {
+    width: 406px;
+    height: 400px;
+    border-left: 1px solid #ccc;
+}
+
+.amusing-pin-item {
+    position: relative;
+    /*height: 200px;*/
+    /*border: 1px solid red;*/
+}
+
+/*top*/
+.amusing-pin .top {
+    height: 194px;
+}
+
+.amusing-pin .bottom {
+    height: 160px;
+}
+
+.amusing-pin p {
+    margin: 0 20px;
+    height: 39px;
+    line-height: 39px;
+    text-align: center;
+    font-weight: 700;
+    border-bottom: 1px solid #eee;
+}
+
+.amusing-pin .top dl {
+    position: relative;
+    float: left;
+    top: 50%;
+    width: 200px;
+    margin-top: -50px;
+    /*width: 110px;*/
+    margin-left: 55px;
+    text-align: left;
+}
+
+.amusing-pin .top dt:first-child {
+    margin-top: 20px;
+    color: #000;
+    font-weight: 700;
+}
+
+.amusing-pin .top dt:nth-child(2) {
+    color: #666;
+}
+
+.amusing-pin .top dt:nth-child(3) {
+    color: red;
+}
+
+.amusing-pin .top img {
+    position: relative;
+    float: left;
+    top: 10px;
+    margin-left: -50px;
+    width: 150px;
+}
+
+/*bottom*/
+.amusing-pin .bottom dl {
+    position: relative;
+    float: left;
+    top: 50%;
+    margin-top: 45px;
+    width: 108px;
+    height: 160px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.amusing-pin .bottom dt:first-child {
+    margin-top: 20px;
+    color: #000;
+    font-weight: 700;
+}
+
+.amusing-pin .bottom dt:nth-child(2) {
+    color: #666;
+}
+
+.amusing-pin .bottom dt:nth-child(3) {
+    color: red;
+}
+
+.amusing-pin .bottom img {
+    position: relative;
+    float: left;
+    top: 50%;
+    margin-top: 45px;
+    width: 80px;
+}
+
+.amusing-pai {
+    width: 162px;
+    height: 400px;
+    border-left: 1px solid #ccc;
+}
+
+.amusing-pai-item {
+    margin-left: 8px;
+}
+
+.amusing-pai-item li {
+    float: left;
+    width: 76px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+}
+
+.left-line {
+    border-left: 1px dashed #ccc;
+}
+
+.top-line {
+    border-top: 1px dashed #ccc;
+}
+
+/*appliance*/
+.appliance {
+    margin-top: 10px;
+}
+
+
+.appliance .spacer {
+    margin: 14px 12px 0;
+}
+
+.appliance .top {
+    height: 38px;
+    padding-left: 1;
+    line-height: 38px;
+    font-size: 14px;
+    border-bottom: 2px solid red;
+}
+
+.appliance .top li {
+    float: left;
+}
+
+/* bottom */
+.bottom li {
+    overflow: hidden;
+    transition: all .2s ease 0s;
+}
+.bottom img:hover{
+    padding-top: 8px;
+}
+.appliance .bottom {
+    height: 360px;
+}
+
+.appliance .bottom li {
+    float: left;
+    height: 360px;
+}
+
+.bottom-type1 {
+    width: 212px;
+    background-color: #f9f9f9;
+}
+
+.bottom-type1 dl {
+    padding-left: 15px;
+}
+
+.bottom-type1 dl dd {
+    float: left;
+    width: 91px;
+    padding: 5px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+
+}
+
+.bottom-type1-img img {
+    height: 273px;
+}
+
+.bottom-type2 img {
+    width: 325px;
+    height: 360px;
+}
+
+.bottom-type3,
+.bottom-type4,
+.bottom-type5 {
+    width: 220px;
+    height: 360px;
+    border-right: 1px solid #eee;
+}
+
+.bottom-type3,
+.bottom-type4,
+.bottom-type5 img {
+    width: 220px;
+}
+
+.bottom-type4 img {
+    width: 100%;
+    height: 360px;
+}
+
+.bottom-type3,
+.bottom-type5 img {
+    height: 180px;
+}
+
+.appliance .bottom a {
+    display: block;
+}
+
+/* phone */
+.phone {
+    margin-top: 10px;
+}
+
+.phone li {
+    float: left;
+}
+
+.phone li img {
+    width: 120px;
+    height: 66px;
+}
+
+.hotgoods {
+    margin-bottom: 20px;
+}
+
+/* fixedtool */
+.fixedtool {
+    position: fixed;
+    left: 50%;
+    margin-left: -680px;
+    top: 200px;
+    width: 66px;
+    /* background-color: #0099cc; */
+}
+.fixedtool li a{
+    display: block;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    color: #666;
+    border-bottom: 1px solid #ccc;
+}
+
+.fixedtool .selected a{
+    color: #fff;
+    background-color: #c81623;
+}

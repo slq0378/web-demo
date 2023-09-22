@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js继承</title>
+  </head>
+  <body>
+    <div>js继承</div>
+    <script>
+      // 1、call 函数
+      function fn(x, y) {
+        console.log(this);
+        console.log(x + y);
+      }
+      var obj = {
+        name: "wang",
+      };
+      // 调用了函数此时的this指向了对象obj
+      fn.call(obj, 2, 4);
+      // 2、子构造函数继承父构造函数中的属性
+      function Animal(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      function Dog(name, age, color) {
+        // this 指向子构造函数的对象实例
+        Animal.call(this, name, age);
+        this.color = color;
+      }
+      var dog1 = new Dog("旺财", 3, "白色");
+      console.log(dog1);
+
+      // 3、子构造函数继承父构造函数中的属性
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      Person.prototype.money = function () {
+        console.log("假如我有100万");
+      };
+      function Teacher(name, age, role) {
+        // this 指向子构造函数的对象实例
+        Person.call(this,name,age);
+        this.role = role;
+      }
+      // 这样直接赋值会有问题,如果修改了子原型对象,父原型对象也会跟着一起变化
+      // Teacher.prototype = Person.prototype;
+      Teacher.prototype = new Person();
+      Teacher.prototype.constructor = Teacher;
+      Teacher.prototype.study = function(){
+          console.log('老师也要学习');
+      }
+      var tea = new Teacher('胡老师',33,'班主任');
+      console.log(tea);
+      // 
+    </script>
+  </body>
+</html>

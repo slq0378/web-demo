@@ -1,0 +1,162 @@
+.w {
+  width: 1200px;
+  margin: 0 auto;
+}
+.top {
+  margin: 16px 0 0;
+  padding: 0 0 6px 0;
+  /* border-bottom: 2px solid #b1191a ; */
+}
+.main {
+  width: 100%;
+  height: 486px;
+  background-color: #7e00ff;
+}
+.main_item {
+  position: relative;
+}
+.login {
+  position: absolute;
+  right: 120px;
+  top: 60px;
+  width: 379px;
+  height: 362px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+.title {
+  margin-top: 22px;
+  margin-left: 37px;
+  width: 303px;
+  text-align: center;
+  /* background-color: #666; */
+}
+.title em {
+  color: #ededed;
+}
+.title h5 {
+  float: left;
+  margin-left: 5px;
+  color: #666;
+}
+.title span {
+  float: right;
+  margin-right: 5px;
+  color: #c81623;
+}
+.notice {
+  margin: 10px 37px;
+  padding-left: 5px;
+  width: 298px;
+  height: 26px;
+  line-height: 26px;
+  color: #666;
+  background-color: #fffdee;
+  border: solid 1px #f5eecf;
+}
+.user,
+.password,
+.forgot,
+.login_btn,
+.share {
+  margin: 10px 37px;
+  width: 303px;
+  height: 36px;
+  border: solid 1px #3aa2e4;
+}
+.user .icon-user1 {
+  float: left;
+  width: 37px;
+  height: 36px;
+  background: #cfcdcd url(../img/icons.png) no-repeat -10px -200px;
+}
+.password .icon-lock1 {
+  float: left;
+  width: 37px;
+  height: 36px;
+  background: #cfcdcd url(../img/icons.png) no-repeat -73px -200px;
+}
+.user input,
+.password input {
+  float: left;
+  padding-left: 10px;
+  height: 36px;
+  line-height: 36px;
+  border: none;
+  outline: none;
+}
+.password {
+  margin-top: 20px;
+}
+.forgot {
+  margin-top: 20px;
+  height: auto;
+  border: none;
+}
+.forgot label {
+  float: left;
+  color: #b3b3b3;
+  vertical-align: middle;
+}
+.forgot .icon-checkbox-checked {
+  vertical-align: middle;
+}
+.forgot span {
+  float: right;
+}
+.login_btn {
+  margin-top: 20px;
+  height: 41px;
+  line-height: 41px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  background-color: #c81623;
+  border: none;
+}
+
+.share {
+  height: 54px;
+  margin-top: 20px;
+  border: none;
+
+}
+.share  img{
+  height: 54px;
+}
+.register {
+  float: right;
+  margin-right: 5px;
+  line-height: 54px;
+}
+.register a{
+  color: #1474af;
+}
+/*footer*/
+.footer {
+  height: 416px;
+  padding-top: 30px;
+  background-color: #f5f5f5;
+}
+
+.mod_service {
+  height: 80px;
+  border-bottom: 1px solid #eee;
+}
+
+.mod_service li {
+  float: left;
+  width: 240px;
+  height: 79px;
+}
+
+.mod_copyright {
+  text-align: center;
+}
+
+.mod_copyright_links {
+  margin: 20px 0 5px 0;
+}
+.mod_copyright_info {
+  line-height: 20px;
+}

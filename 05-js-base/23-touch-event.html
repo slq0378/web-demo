@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <button>拖动</button>
+    <script>
+      var btn = document.querySelector("button");
+      // 获取初始位置
+      var loc;
+      var preOffset;
+      btn.addEventListener("touchstart", function (e) {
+        console.log("touchstart", e.targetTouches[0].pageY);
+        loc = e.targetTouches[0];
+        preOffset = { x: this.offsetLeft, y: this.offsetTop };
+      });
+      // 移动盒子
+      btn.addEventListener("touchmove", function (e) {
+        console.log("touchmove", e.targetTouches[0].pageY);
+        this.style.left =
+          preOffset.x + e.targetTouches[0].pageX - loc.pageX + "px";
+        this.style.top =
+          preOffset.y + e.targetTouches[0].pageY - loc.pageY + "px";
+        //注意： 手指移动也会触发滚动屏幕所以这里要阻止默认的屏幕滚动 e.preventDefault();
+        e.preventDefault();
+      });
+
+      btn.addEventListener("touchend", function (e) {
+        console.log("touchend", e);
+      });
+      /* TouchEvent
+            isTrusted: true
+            altKey: false
+            bubbles: true
+            cancelBubble: false
+            cancelable: true
+            changedTouches: TouchList {0: Touch, length: 1}
+            composed: true
+            ctrlKey: false
+            currentTarget: null
+            defaultPrevented: false
+            detail: 0
+            eventPhase: 0
+            metaKey: false
+            path: (5) [button, body, html, document, Window]
+            returnValue: true
+            shiftKey: false
+            sourceCapabilities: InputDeviceCapabilities {firesTouchEvents: true}
+            srcElement: button
+            target: button
+            targetTouches: TouchList {length: 0}
+            timeStamp: 36259.90000000596
+            touches: TouchList {length: 0}
+            type: "touchend"
+            view: Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+            which: 0
+      */
+    </script>
+  </body>
+</html>

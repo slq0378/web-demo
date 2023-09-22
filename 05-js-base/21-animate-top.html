@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>回到顶部</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        height: 2000px;
+      }
+      button {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 10px;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数动画函数
+    </div>
+    <button id="top">回到顶部</button>
+    <script>
+      var topBtn = document.querySelector("#top");
+      
+      topBtn.addEventListener("click", function () {
+        // document.body.scrollTop(0,0)
+        console.log("window.innerHeight", window.scrollY);
+        console.log("window.pageYOffset", window.pageYOffset);
+        // window.scrollTo(0, 0); // 直接滚动到顶部，没动画效果
+        //手动调用点击事件
+        // animate(window, 0, function () {
+        //   console.log("done!");
+        // });
+      });
+      // 滚动到一定程度显示top按钮
+      document.addEventListener('scroll',function(){
+        if(window.pageYOffset > 300){
+          topBtn.style.display = 'block';
+        }else{
+          topBtn.style.display = 'none';
+        }
+      })
+      // 动画函数
+      function animate(obj, target, callback) {
+        // 先清除以前的定时器，只保留当前的一个定时器执行
+        clearInterval(obj.timer);
+        obj.timer = setInterval(() => {
+          // 步长值写到定时器的里面
+          // 把我们步长值改为整数 不要出现小数的问题
+          var step = (target - obj.pageYOffset) / 10;
+          step = step > 0 ? Math.ceil(step) : Math.floor(step);
+          if (obj.pageYOffset == target) {
+            // 停止动画 本质是停止定时器
+            clearInterval(obj.timer);
+            // 回调函数写到定时器结束里面
+            callback && callback();
+          }
+          // 把每次加1 这个步长值改为一个慢慢变小的值  步长公式：(目标值 - 现在的位置) / 10
+          // obj.style.left = window.pageYOffset + step + 'px';
+          window.scroll(0, obj.pageYOffset + step);
+        }, 15);
+      }
+    </script>
+  </body>
+</html>

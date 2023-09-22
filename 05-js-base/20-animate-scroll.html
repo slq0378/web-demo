@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>轮播图</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .contaniner {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        background-color: purple;
+        overflow: hidden;
+      }
+      ul {
+        list-style: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 600%;
+        height: 200px;
+        background-color: lightblue;
+      }
+      ul li {
+        float: left;
+      }
+      img {
+        width: 400px;
+        height: 200px;
+      }
+      #pre {
+        position: absolute;
+        right: 10px;
+        top: 100px;
+        font-size: 35px;
+      }
+      #next {
+        position: absolute;
+        right: 10px;
+        top: 150px;
+        font-size: 35px;
+      }
+      .current {
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>将图片水平平铺好，然后每次移动一个图片的 宽度</p>
+    <button id="pre">pre</button>
+    <button id="next">next</button>
+    <div class="contaniner">
+      <ul>
+        <li><img src="../images/earth.jpg" alt="" /></li>
+        <li><img src="../images/2.png" alt="" /></li>
+        <li><img src="../images/beautifulgirl.jpg" alt="" /></li>
+        <li><img src="../images/box.png" alt="" /></li>
+        <li class="current"><img src="../images/1.png" alt="" /></li>
+      </ul>
+    </div>
+
+    <script>
+      var focus = document.querySelector(".contaniner");
+      var focusWidth = focus.offsetWidth;
+      var pre = document.querySelector("#pre");
+      var next = document.querySelector("#next");
+      var index = 0;
+      var ul = document.querySelector("ul");
+      console.log("focusWidth", focusWidth);
+      var flag = true; // 当上一个函数动画内容执行完毕，再去执行下一个函数动画，让事件无法连续触发
+      focus.addEventListener("mouseenter", function () {
+        clearInterval(timer);
+        timer = null; // 清除定时器变量
+      });
+      focus.addEventListener("mouseleave", function () {
+        timer = setInterval(function () {
+          //手动调用点击事件
+          next.click();
+        }, 2000);
+      });
+      
+      next.addEventListener("click", function (e) {
+        if (flag) {
+          flag = false;
+          if (index == ul.children.length - 1) {
+            // 最后一个，回到第一
+            ul.style.left = 0;
+            index = 0;
+          }
+          index++;
+          animate(ul, -index * focusWidth, function () {
+            console.log("动画完毕");
+            flag = true;
+          });
+        }
+      });
+      pre.addEventListener("click", function (e) {
+        if (flag) {
+          flag = false;
+          if (index == 0) {
+            // 第一,回到最后一个
+            index = ul.children.length - 1;
+            ul.style.left = -index * focusWidth + "px";
+          }
+          index--;
+          animate(ul, -index * focusWidth, function () {
+            console.log("动画完毕");
+            flag = true;
+          });
+        }
+      });
+      var timer = setInterval(function () {
+        //手动调用点击事件
+        next.click();
+      }, 2000);
+      // 动画函数
+      function animate(obj, target, callback) {
+        // 先清除以前的定时器，只保留当前的一个定时器执行
+        clearInterval(obj.timer);
+        obj.timer = setInterval(() => {
+          // 步长值写到定时器的里面
+          // 把我们步长值改为整数 不要出现小数的问题
+          var step = (target - obj.offsetLeft) / 10;
+          step = step > 0 ? Math.ceil(step) : Math.floor(step);
+          if (obj.offsetLeft == target) {
+            // 停止动画 本质是停止定时器
+            clearInterval(obj.timer);
+            // 回调函数写到定时器结束里面
+            callback && callback();
+          }
+          // 把每次加1 这个步长值改为一个慢慢变小的值  步长公式：(目标值 - 现在的位置) / 10
+          obj.style.left = obj.offsetLeft + step + "px";
+        }, 15);
+      }
+    </script>
+  </body>
+</html>

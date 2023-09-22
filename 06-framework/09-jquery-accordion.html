@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>手风琴效果</title>
+    <script src="../framework/jquery.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      img {
+        display: block;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .king {
+        width: 852px;
+        margin: 100px auto;
+        background: url(images/accordion/bg.png) no-repeat;
+        overflow: hidden;
+        padding: 10px;
+      }
+
+      .king ul {
+        overflow: hidden;
+      }
+
+      .king li {
+        position: relative;
+        float: left;
+        width: 69px;
+        height: 69px;
+        margin-right: 10px;
+      }
+
+      .king li.current {
+        width: 224px;
+      }
+
+      .king li.current .big {
+        display: block;
+      }
+
+      .king li.current .small {
+        display: none;
+      }
+
+      .big {
+        width: 224px;
+        display: none;
+      }
+
+      .small {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 69px;
+        height: 69px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="king">
+      <ul>
+        <li class="current">
+          <a href="#">
+            <img src="images/accordion/m1.jpg" alt="" class="small" />
+            <img src="images/accordion/m.png" alt="" class="big" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="images/accordion/l1.jpg" alt="" class="small" />
+            <img src="images/accordion/l.png" alt="" class="big" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="images/accordion/c1.jpg" alt="" class="small" />
+            <img src="images/accordion/c.png" alt="" class="big" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="images/accordion/w1.jpg" alt="" class="small" />
+            <img src="images/accordion/w.png" alt="" class="big" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="images/accordion/z1.jpg" alt="" class="small" />
+            <img src="images/accordion/z.png" alt="" class="big" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="images/accordion/h1.jpg" alt="" class="small" />
+            <img src="images/accordion/h.png" alt="" class="big" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="images/accordion/t1.jpg" alt="" class="small" />
+            <img src="images/accordion/t.png" alt="" class="big" />
+          </a>
+        </li>
+      </ul>
+    </div>
+    <script>
+      $(function () {
+          $('.king li').mouseenter(function(){
+              // 显示长图
+              $(this).stop().animate({
+                  width:224
+              }).find('.small').stop().fadeOut().siblings().stop().fadeIn()
+              // 隐藏其他长图
+              $(this).siblings('li').stop().animate({
+                  width:69
+              }).find('.small').stop().fadeIn().siblings('.big').stop().fadeOut()
+          })
+      });
+    </script>
+  </body>
+</html>

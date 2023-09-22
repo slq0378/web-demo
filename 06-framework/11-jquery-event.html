@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../framework/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="first">q</div>
+    <div class="second">second</div>
+    <input type="text" name="" id="" />
+    <script>
+      $(function () {
+        $("div").css({
+          width: 100,
+          height: 100,
+          border: "1px solid #000",
+        });
+        // $('.first').click(function(){
+        //     console.log('click first');
+        // })
+        // $('.first').mouseenter(function(e){
+        //     console.log(e);
+        //     $(this).text('enter')
+        // })
+        // $('.first').mouseleave(function(e){
+        //     console.log(e);
+        //     $(this).text('leave')
+        // })
+        // on 绑定事件最好用
+        // 1、同时绑定多个事件
+        $(".first").on({
+          mouseenter: function () {
+            $(this).text("mouseenter");
+          },
+          mouseleave: function () {
+            $(this).text("mouseleave");
+          },
+          click: function () {
+            $(this).text("click");
+          },
+        });
+        // 2、如果两个事件处理方式一样，同时处理两个事件
+        // $('.first').on('mouseenter mouseleave',function(){
+        //     console.log('我们都一样');
+        // })
+        // 3、给动态生成的元素绑定事件
+        $(".first").after(
+          $("<p>动态P</p>").click(function () {
+            console.log("我是动态P");
+          })
+        );
+
+        // 解除事件绑定
+        // $('.first').off() // 解除所有事件
+        $(".first").off("click"); // 解除指定事件
+        // one() 但是它只能触发事件一次
+        $("p").one("click", function () {
+          alert(11);
+        });
+        // 事件处理 trigger() 自动触发事件
+        $(".second").click(function () {
+          console.log("second click");
+        });
+        // 自动触发click()
+        $(".second").click();
+        // 自动触发trigger('click')
+        $(".second").trigger("click");
+        $("input").on("focus", function () {
+          console.log("input focus");
+        });
+        // 这两个会触发默认行为，获取焦点
+        // $('input').focus()
+        // $('input').trigger('focus')
+        // 不会获取焦点,也就是不会触发元素默认行为
+        $("input").triggerHandler("focus");
+
+        // jQuery 事件对象
+        $(".second").on("click", function (event) {
+          console.log(event);
+          console.log("点击了div");
+          // 阻止冒泡
+          event.stopPropagation();
+        });
+        // jQuery 拷贝对象
+        // 合并数据,会覆盖 targetObj 里面原来的数据
+        var targetObj = {
+          age: 12,
+          id: 0,
+        };
+        var obj = {
+          id: 1,
+          name: "andy",
+        };
+        var obj2 = {
+          id: 1,
+          score: 99,
+        };
+        $.extend(targetObj, obj,obj2);
+        console.log(targetObj);
+
+      });
+    </script>
+  </body>
+</html>

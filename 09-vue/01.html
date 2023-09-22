@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div>{{msg}}</div>
+      <!-- 事件会从click2冒泡到click1 -->
+      <div @click="click1">
+        <button @click="click2">点击2</button>
+        <!-- 传统方式阻止冒泡 -->
+        <button @click="click3">点击3</button>
+        <!-- vue方式阻止冒泡 .stop -->
+        <button @click.stop="click4">点击4</button>
+      </div>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          msg: "hello Vue",
+        },
+        methods: {
+          click1() {
+            console.log("click111");
+            this.msg = "111";
+          },
+          click2() {
+            console.log("click222");
+            this.msg = "222";
+          },
+
+          click3(e) {
+            console.log("click333");
+            this.msg = "333";
+            // 传统方式 阻止冒泡
+            e.stopPropagation();
+          },
+          click4() {
+            console.log("click4");
+            this.msg = "4";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

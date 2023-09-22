@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>location 对象</title>
+  </head>
+  <body>
+    <h3>location 对象</h3>
+    <script>
+      console.log(window.location);
+    //   alert(location);
+      var loc = {
+        ancestorOrigins: {},
+        href: "http://www.11.com", // URL 地址
+        origin: "file://", 
+        protocol: "file:", // 协议 http ftp file等
+        host: "", // 返回主机（域名）
+        hostname: "", // 返回主机名
+        port: "", // 返回端口，默认80
+        pathname: "http://www.11.com", // 返回路径
+        search: "", // 返回参数
+        hash: "", // 返回片段，#后面内容常见链接、锚点
+      };
+      // 1s 后跳转到其他地址
+      setTimeout(() => {
+        //   location.href = 'https://www.qq.com' // 跳转
+        // location.assign('https://qq.com') // 跳转
+        // location.reload() //重载
+        // location.replace('https://qq.com') // 替换
+      }, 1000);
+      
+    </script>
+  </body>
+</html>

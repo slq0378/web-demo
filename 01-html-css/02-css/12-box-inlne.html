@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inline-box </title>
+    <style type="text/css">
+    div {
+        background: #eee;
+        /*margin: 30px;*/
+        border: 1px solid #0092ff;
+        color: #fff;
+        /*overflow: hidden;*/
+    }
+
+    .demo1 {
+        background: cyan;
+        /*width: 100px;不生效*/
+        /*height: 100px; 不生效*/
+        border: 1px solid grey;
+    }
+
+    .demo2 {
+        background: green;
+        /*width: 100px;不生效*/
+        /*height: 100px; 不生效*/
+        border: 1px solid red;
+        /*可以生效，超出自身范围，因此内边距和边框会与段落中的其他单词重叠，如果父类设置overflow：hidden；左右生效，上下超出部分被隐藏*/
+        padding: 20px 10px;
+    }
+
+    .demo3 {
+        background: blue;
+        /*width: 100px;不生效*/
+        /*height: 100px; 不生效*/
+        border: 1px solid blue;
+        /*左右生效，上下不生效，因为它是行内元素*/
+        margin: 20px 20px 100px 20px; 
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="demo1">
+            边框
+        </span>
+        <span class="demo2">
+            内边距
+        </span>
+        <span class="demo3">
+            外边距
+        </span>
+    </div>
+    <div>
+        就呵呵呵呵呵呵呵呵呵呵看见阿娥卡就让人家啊说就打开手机的罚款手机发送放假啊就发几款卷发假发老师的空间上的卷发放假啊刷空间
+    </div>
+</body>
+
+</html>

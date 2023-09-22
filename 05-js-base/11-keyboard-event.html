@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件</title>
+</head>
+<body>
+    <div >222</div>
+    <input type="text">
+
+    <script>
+        // 键盘弹起触发
+        document.body.addEventListener('keydown',function(e){
+            console.log('keydown',e);
+        })
+        // 键盘按下触发
+        document.body.addEventListener('keyup',function(e){
+            console.log('keyup',e.keyCode);
+        })
+        // 键盘按下触发，不能识别功能键。如shift ctrl >等
+        document.body.addEventListener('keypress',function(e){
+            console.log('keypress',e.keyCode);
+        })
+        // 按下s，获取输入框焦点
+        var input = document.querySelector('input')
+        document.body.addEventListener('keyup',function(e){
+            console.log('keyup',e.keyCode);
+            if(e.keyCode  == 83){
+                // 获取焦点
+                input.focus()
+            }
+        })
+        // 自动显示大些字母
+        var info = document.querySelector('div')
+        document.body.addEventListener('keyup',function(e){
+            console.log('自动显示大些字母',e.key);
+            info.innerText = info.innerText + e.key.toUpperCase()
+        })
+    </script>
+</body>
+</html>

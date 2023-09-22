@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>navigator</title>
+  </head>
+  <body>
+    <div>
+      navigator 对象包含有关浏览器的信息，它有很多属性，我们最常用的是
+      userAgent，该属性可以返回由客户机发送服务器的 user-agent 头部的值。
+    </div>
+    <script>
+      console.log(navigator);
+      // 常见属性
+      var nav = {
+        userAgent:
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36",
+        userAgentData: { brands: Array(3), mobile: false, platform: "macOS" },
+        vendor: "Google Inc.",
+        appCodeName: "Mozilla",
+        appName: "Netscape",
+        appVersion: "5.0 (Macintosh; Intel Mac OS X",
+        platform: "MacIntel",
+        product: "Gecko",
+        productSub: "20030107",
+        bluetooth: {},
+        clipboard: {},
+        geolocation: {},
+        keyboard: {},
+        language: "zh-CN",
+        languages: (2)[("zh-CN", "zh")],
+      };
+      // 判断设备
+      if (
+        navigator.userAgent.match(
+          /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+        )
+      ) {
+        // window.location.href = ""; //手机
+      } else {
+        // window.location.href = ""; //电脑
+      }
+    </script>
+  </body>
+</html>

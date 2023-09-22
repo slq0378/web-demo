@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>定时器</title>
+  </head>
+  <body>
+    <pre>
+        定时器：
+        setTimeout：单次，延迟执行
+        setInterval：多次，循环执行
+    </pre>
+    setTimeout:
+    <div id="t1"></div>
+    setInterval:
+    <div id="t2"></div>
+    <script>
+      var t1 = document.querySelector("#t1");
+      var t2 = document.querySelector("#t2");
+      // 单次定时器
+      var time1 = setTimeout(() => {
+        console.log("setTimeout-----------");
+        t1.innerText = Date().toString();
+      }, 1000);
+      // 循环定时器
+      var time2 = setInterval(() => {
+        console.log("setInterval----------");
+        t2.innerText = Date().toString();
+      }, 2000);
+
+      // 5s 后停止定时器
+      setTimeout(() => {
+        console.log("stop-----------");
+        clearInterval(time2)
+        clearTimeout(time1)
+      }, 5000);
+    </script>
+  </body>
+</html>

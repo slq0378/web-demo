@@ -1,0 +1,29 @@
+// Less语法
+// 变量定义
+@bgColor: #0092ff;
+@border: 5px + 5; // 注意运算符前后的空格。如果只有一个有单位，就以这个为单位，如果有多个，取第一个单位为准
+body {
+  // 变量使用
+  //   background-color: @bgColor;
+}
+
+// 嵌套
+div {
+  border: @border solid blue;
+  a {
+    color: red;
+    // 伪类 添加&表示父类
+    &:hover {
+      color: green;
+    }
+  }
+}
+section {
+    // 运算
+  border:((@border+1)/2) solid red;
+  p {
+    &::before {
+      content: "before ";
+    }
+  }
+}

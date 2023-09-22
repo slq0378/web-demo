@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html5</title>
+    <style>
+       audio{
+            margin: 50px;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 音频标签 -->
+    <!-- <audio src="test.mp3" controls="controls"></audio> -->
+    <!-- 兼容多个格式音频 -->
+    <audio>
+        <source src="test.mp3" type="audio/mpeg"> 
+        <source src="test.ogg" type="audio/ogg">
+        不支持音频播放
+    </audio>
+</body>
+</html>

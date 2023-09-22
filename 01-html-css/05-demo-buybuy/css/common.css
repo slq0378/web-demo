@@ -1,0 +1,302 @@
+/*公共样式*/
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/*版心*/
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.style-red {
+    color: #c81623;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/*shortcut*/
+.shortcut {
+    height: 31px;
+    line-height: 31px;
+    background-color: #eee;
+}
+
+.shortcut li {
+    float: left;
+}
+
+.spacer {
+    width: 1px;
+    height: 12px;
+    background-color: #666;
+    margin: 9px 12px 0;
+}
+
+.fr .icon-ctrl3 {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+/*header*/
+.header {
+    position: relative;
+    height: 100px;
+}
+
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 175px;
+    height: 80px;
+}
+
+.logo a {
+    display: block;
+    width: 175px;
+    height: 56px;
+    font-size: 0;
+    background: url(../img/logo.png);
+}
+
+.search {
+    position: absolute;
+    top: 25px;
+    left: 348px;
+    width: 490px;
+    height: 36px;
+}
+
+.search input {
+    float: left;
+    width: 420px;
+    height: 30px;
+    border: 1px solid #c81623;
+    padding-left: 10px;
+}
+
+.search button {
+    float: left;
+    width: 58px;
+    height: 32px;
+    background-color: #c81623;
+}
+
+.hotwords {
+    position: absolute;
+    top: 65px;
+    left: 348px;
+}
+
+.hotwords li {
+    float: left;
+    margin-right: 10px;
+}
+
+.shopcar {
+    position: absolute;
+    right: 64px;
+    top: 25px;
+    width: 130px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.shopcar a {
+    margin-left: 5px;
+}
+
+.shopcar .icon-home3 {
+    color: #c81623;
+}
+
+.shopcar .icon-ctrl1 {
+    padding-right: 5px;
+}
+
+.shopcar .count {
+    position: absolute;
+    display: inline-block;
+    top: -5px;
+    left: 100px;
+    padding: 0 3px;
+    height: 14px;
+    line-height: 14px;
+    background-color: #c81623;
+    color: #fff;
+    border-radius: 7px 7px 7px 0;
+}
+
+/*nav*/
+.top_nav {
+    height: 45px;
+    line-height: 45px;
+    border-bottom: 1px solid #c81623;
+}
+.dropdown .menu {
+    width: 210px;
+    /* height: 45px; */
+    background-color: #b1191a;
+    text-align: center;
+    color: #fff;
+}
+
+.dropdown .sub-menu {
+    display: none;
+    width: 210px;
+    color: #f7f7f7;
+    border-bottom: 1px solid #c81623;
+}
+
+.dropdown:hover .sub-menu {
+    position: absolute;
+    display: block;
+}
+
+.sub-menu .menu-item {
+    height: 31px;
+    padding: 0 10px;
+    line-height: 31px;
+    background-color: #c81623;
+    border-left: 1px solid #c81623;
+    transition:  all .4s;
+}
+
+.menu-item:hover {
+    color: #c81623;
+    padding-left: 20px;
+    background-color: #f7f7f7;
+}
+
+.menu-item a {
+    font-size: 14px;
+    color: #f7f7f7;
+}
+
+.menu-item:hover a {
+    color: #c81623;
+}
+
+.menu-item .icon-ctrl1 {
+    float: right;
+    line-height: 31px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.navitems {
+    margin-left: 10px;
+}
+
+.navitems li {
+    float: left;
+}
+
+.navitems li a {
+    display: block;
+    height: 45px;
+    padding: 0 20px;
+    line-height: 45px;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+/*footer*/
+.footer {
+    height: 416px;
+    padding-top: 30px;
+    background-color: #f5f5f5;
+}
+
+.mod_service {
+    height: 80px;
+    border-bottom: 1px solid #eee;
+}
+
+.mod_service li {
+    float: left;
+    width: 240px;
+    height: 79px;
+}
+
+.mod_service_icon {
+    float: left;
+    margin-left: 35px;
+    width: 50px;
+    height: 50px;
+    background: url(../img/icons.png)
+}
+
+.mod_service_title {
+    float: left;
+    margin-top: 6px;
+    margin-left: 5px;
+}
+
+.mod_service_zheng {
+    background-position: -252px -3px;
+}
+
+.mod_service_ji {
+    background-position: -255px -53px;
+}
+
+.mod_service_wu {
+    background-position: -257px -105px;
+}
+
+.mod_service_te {
+    background-position: -257px -157px;
+}
+
+.mod_service_bang {
+    background-position: -256px -209px;
+}
+
+.mod_help {
+    border-bottom: 1px solid #eee;
+}
+
+.mod_help dl {
+    float: left;
+    width: 150px;
+    height: 168px;
+    padding: 20px 0 0 50px;
+}
+
+.mod_help dt {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.mod_help dl a {
+    font-size: 12px;
+    color: #666;
+}
+
+.mod_help .mod_help_qrcode {
+    text-align: center;
+    margin-left: -20px;
+    padding: 20px 0 0 0;
+}
+
+.mod_copyright{
+    text-align: center;
+}
+
+.mod_copyright_links{
+    margin: 20px 0 5px 0;
+}
+.mod_copyright_info{
+    line-height: 20px;
+}

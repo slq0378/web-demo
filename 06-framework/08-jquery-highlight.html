@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>高亮效果</title>
+    <script src="../framework/jquery.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #000;
+      }
+      ul {
+        list-style: none;
+      }
+      li {
+        float: left;
+        margin: 5px;
+      }
+      .main {
+        margin: 100px auto;
+        width: 630px;
+        border: 1px solid #fff;
+        overflow: hidden;
+      }
+      img {
+        display: block;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="main">
+      <li><img src="images/01.jpg" alt="" /></li>
+      <li><img src="images/02.jpg" alt="" /></li>
+      <li><img src="images/03.jpg" alt="" /></li>
+      <li><img src="images/04.jpg" alt="" /></li>
+      <li><img src="images/05.jpg" alt="" /></li>
+      <li><img src="images/06.jpg" alt="" /></li>
+    </ul>
+    <script>
+      $(function () {
+        // $("ul li").hover(function () {
+        //   //   $(this).css("opacity", 1);
+        //   //   $(this).siblings().css("opacity", 0.4);
+        //   // 鼠标进入的时候,其他的li标签透明度：0.5
+        //   $(this).siblings().stop().fadeTo(500, 0.5);
+        // });
+        // $("ul li").mouseleave(function (e) {
+        //   console.log("mouseleave", e);
+        //   //   $(this).css("opacity", 1);
+        //   //   $(this).siblings().css("opacity", 1);
+        //    //  鼠标离开，其他li 透明度改为 1
+        //   $(this).siblings().stop().fadeTo(500,1);
+        // });
+        // 方法触发 mouseenter 和 mouseleave 事件。
+        $('ul li').hover(function(){
+            $(this).siblings().stop().fadeTo(500, 0.5);
+        },function(){
+            $(this).siblings().stop().fadeTo(500,1);
+        })
+      });
+    </script>
+  </body>
+</html>

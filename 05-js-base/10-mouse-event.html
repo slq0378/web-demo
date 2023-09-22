@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>鼠标常用事件</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      div {
+        width: 300px;
+        height: 300px;
+        background-color: lightblue;
+        /* margin: 0 auto; */
+      }
+      img{
+          position: absolute;
+          width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+      <div>333</div>
+    <div id="btn">鼠标常用事件</div>
+    <input type="text" />
+    <img src="../images/cat.gif" alt="">
+    <script>
+      var btn = document.querySelector("#btn");
+      /*
+      // 鼠标点击元素区域
+      btn.addEventListener("click", function (e) {
+        console.log("click btn", e);
+        this.style.border = "1px solid red";
+      });
+      // 鼠标经过元素区域
+      btn.addEventListener("mouseover", function (e) {
+        console.log("click mouseover");
+        this.style.border = "1px solid blue";
+      });
+      // 鼠标离开元素区域
+      btn.addEventListener("mouseout", function (e) {
+        console.log("click mouseout");
+        this.style.border = "1px solid #fff";
+      });
+      var input = document.querySelector("input");
+      // 输入框获取焦点
+      input.addEventListener("focus", function (e) {
+        console.log("click focus");
+      });
+      // 输入框失去焦点
+      input.addEventListener("blur", function (e) {
+        console.log("click blur");
+      });
+      // 鼠标在目标区域移动
+      btn.addEventListener("mousemove", function (e) {
+        console.log("click mousemove");
+      });
+      // 鼠标在目标区域弹出
+      btn.addEventListener("mouseup", function (e) {
+        console.log("click mouseup");
+      });
+      // 鼠标在目标区域按下
+      btn.addEventListener("mousedown", function (e) {
+        console.log("click mousedown");
+      });
+      // 禁止在目标区域右键弹出
+      btn.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+      });
+      // 禁止在目标区域文字选中
+      btn.addEventListener("selectstart", function (e) {
+        e.preventDefault();
+      });
+*/
+      // 事件对象相关属性
+      btn.addEventListener("click", function (e) {
+        console.log("click btn", e);
+        this.style.border = "1px solid red";
+        console.log("--------\n可视区域坐标");
+        console.log(e.clientX);
+        console.log(e.clientY);
+        console.log("--------\n文档界面坐标，IE9+支持");
+        console.log(e.pageX);
+        console.log(e.pageY);
+        console.log("--------\n电脑屏幕坐标");
+        console.log(e.screenX);
+        console.log(e.screenY);
+        e.target.innerText = ''+e.clientX+','+e.clientY
+      });
+
+      // 跟随鼠标的猫,设置img为绝对定位，然后根据鼠标位置改变left和top
+      var cat = document.querySelector('img')
+      document.body.addEventListener('mousemove',function(e){
+          console.log(cat);
+          cat.style.left = e.pageX - 50 +'px'
+          cat.style.top = e.pageY - 50 +'px'
+      })
+    </script>
+  </body>
+</html>

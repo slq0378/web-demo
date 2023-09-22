@@ -1,0 +1,238 @@
+/* 购物车结算页 */
+
+.main {
+  /* height: 1000px; */
+  margin-bottom: 100px;
+}
+.title {
+  color: #c81623;
+}
+.goods_table {
+  margin-top: 10px;
+  border: none;
+  border-collapse: collapse;
+  color: #333;
+}
+.icon-checkbox-unchecked {
+  vertical-align: middle;
+}
+
+.goods_table .header {
+  height: 36px;
+  width: 1200px;
+  line-height: 36px;
+  background-color: #eee;
+}
+.header .all {
+  text-align: left;
+}
+.goods_type .all {
+  height: 46px;
+  text-align: left;
+}
+.type_red {
+  color: #fff;
+  padding: 2px 4px;
+  background-color: #c81623;
+}
+.type_right {
+  text-align: right;
+  font-family: "MicrosoftYaHei";
+  font-size: 12px;
+}
+.type_right span {
+  color: #666666;
+  font-family: "SimSun";
+  font-size: 12px;
+}
+.type_right em {
+  color: #c81623;
+}
+.goods_type {
+  border-bottom: 1px solid #ccc;
+}
+
+.selected {
+  padding-left: 5px;
+  padding-right: 7px;
+}
+.all {
+  width: 60px;
+}
+.goods {
+  width: 560px;
+}
+
+.price {
+  width: 130px;
+  text-align: center;
+}
+.count {
+  width: 170px;
+  text-align: center;
+}
+.total {
+  width: 100px;
+  text-align: center;
+}
+.operation {
+  width: 173px;
+  text-align: center;
+  color: #666;
+}
+
+/* goods_detail */
+.goods_detail {
+  border: 1px solid #ccc;
+}
+/* count */
+.count_number {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #ccc;
+}
+.count_minus {
+  float: left;
+  width: 29px;
+  border-right: 1px solid #ccc;
+}
+.count_detail {
+  float: left;
+  width: 41px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: none;
+}
+.count_add {
+  float: left;
+  width: 29px;
+  border-left: 1px solid #ccc;
+}
+.count h5 {
+  color: #999;
+  font-weight: 400;
+}
+
+/* goods */
+.goods img {
+  float: left;
+  margin: 15px 13px;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #eee;
+  background-color: #666666;
+}
+.goods_info {
+  float: left;
+  margin-top: 15px;
+}
+.goods_left {
+  float: left;
+  width: 260px;
+  line-height: 20px;
+  margin-right: 20px;
+}
+.icon-heart {
+  vertical-align: middle;
+  color: #c81623;
+}
+.googs_right {
+  float: left;
+  width: 200px;
+  vertical-align: top;
+}
+/* 换购 goods_detail_exchange */
+.goods_detail_exchange {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+.goods_exchange_btn {
+  float: left;
+  margin: 15px 20px 15px 5px;
+  width: 46px;
+  height: 20px;
+  border: 1px solid #c81623;
+}
+.goods_detail_exchange .goods_left {
+  width: 320px;
+}
+.goods_left em {
+  color: #666;
+}
+
+.goods_detail_exchange .goods_right {
+  /* width: 220px; */
+}
+.goods_left_right_border {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+/* goods_gift */
+.goods_gift {
+  padding-left: 64px;
+}
+.goods_gift div {
+  margin: 9px 0;
+}
+
+/* goods_footer */
+.goods_footer {
+}
+.goods_footer_left li {
+  float: left;
+  margin-right: 10px;
+}
+.goods_footer_right li {
+  float: right;
+}
+.footer_count {
+  margin-left: 30px;
+  width: 109px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #c81623;
+  color: #fefefe;
+  font-size: 16px;
+  text-align: center;
+}
+.footer_price {
+  margin: 5px 0;
+  height: 40px;
+  line-height: 20px;
+}
+.footer_desc {
+  margin: 5px 0;
+  height: 40px;
+  line-height: 20px;
+  text-align: right;
+}
+/* goods_delete_detail */
+.goods_delete{
+  margin-bottom: 20px;
+}
+.goods_delete_detail {
+  height: 32px;
+  background-color: #fffdee;
+  color: #333;
+  border: none;
+}
+.goods_delete_desc li {
+  float: left;
+}
+.goods_delete_desc .left {
+  margin-left: 20px;
+  width: 300px;
+}
+.goods_delete_desc .middle {
+  width: 550px;
+  text-align: center;
+}
+.goods_delete_desc .right {
+  float: right;
+  width: 300px;
+  margin-right: 10px;
+  text-align: right;
+}

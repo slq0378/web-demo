@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre>
+window 对象是浏览器的顶级对象，具有双重角色。
+是JS访问浏览器窗口的一个接口
+是一个全局对象，定义在全局作用域中的变量、函数、都会变成window对象的属性和方法。
+在调用的时候可以省略window，比如window.alert(),可以省略直接些alert()
+注意：window上的属性name，window.name
+    </pre>
+    <div>222</div>
+    <script>
+      // 窗口 (页面）加载事件，**当文档内容完全加载完成**会触发该事件(包括图像、脚本文件、CSS 文件等), 就调用的处理函数。
+      window.onload = function (e) {
+        console.log("onload:", e);
+      };
+      // DOMContentLoaded 事件触发时，仅当DOM加载完成，不包括样式表，图片，flash等等。IE9以上才支持！！！
+      document.addEventListener("DOMContentLoaded", function (e) {
+        console.log("DOMContentLoaded:", e);
+      });
+      var div = document.querySelector("div");
+      // 调整窗口大小事件
+      window.onresize = function (e) {
+        console.log("resize:", e);
+        div.innerText = window.innerWidth + "," + window.innerHeight;
+      };
+      window.addEventListener("resize", function (e) {
+        console.log("addEventListener resize:", e);
+      });
+    </script>
+  </body>
+</html>

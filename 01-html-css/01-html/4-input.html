@@ -1,0 +1,25 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 表单</title>
+</head>
+
+<body>
+    <!-- 主要和input搭配使用，点击label自动获取input焦点 -->
+    <label>姓名：<input type="text" name="name" placeholder="请输入" /></label>
+    <br>
+    <!-- 通过for和id和input 连接 -->
+    <label for="age"> 年龄：</label>
+    <input type="number" name="age" placeholder="请输入" id="age" /><br>
+    密码：<input type="password" name="pass" placeholder="请输入密码" /><br>
+    性别：南<input type="radio" name="sex" checked="checked" />女<input type="radio" name="sex" /><br />
+    喜欢：张三<input type="checkbox" name="love" checked="checked" />莉丝<input type="checkbox" name="love" />王武<input type="checkbox" name="love" /><br />
+    <input type="button" name="btn" value="提交" />
+    <input type="reset" name="btn" value="重置" /><br>
+    <input type="image" src="../images/.1.png" value="图片" /><br>
+    <input type="file" name="file" value="文件" />
+</body>
+
+</html>

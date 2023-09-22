@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=p, initial-scale=1.0" />
+    <title>结构伪类选择器</title>
+    <style>
+      li {
+        margin: 10px 0;
+      }
+      /* li:first-child {
+        width: 100px;
+        border: 1px solid blue;
+      }
+      /* 数字，记得添加空格  */
+      ul li:nth-child(2) {
+        width: 100px;
+        border: 1px solid green;
+      }
+      ul :last-child {
+        width: 100px;
+        border: 1px solid red;
+      }
+      /* 关键字 */
+      ul :nth-child(even) {
+        border: 1px solid red;
+      }
+      ul :nth-child(odd) {
+        border: 1px solid blue;
+      }
+      /* 公式 */
+      ul :nth-child(-n+5) {
+        color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      #### 结构伪类选择器 <br />
+      - 选择指定类型的第几个元素 <br />
+      - irst-child，匹配选择器选出的第1个子元素<br />
+      - last-child，匹配选择器选出的最后1个子元素<br />
+      - nth-child(n) ，匹配选择器选出的第n个子元素<br />
+      - First-of-type，指定类型的第一个 <br />
+      - last-of-type，指定类型的最后个 <br />
+      - nth-of-type(n)，指定类型的第n个 <br />
+    </p>
+
+    <ul>
+      <li>11111</li>
+      <li>222222</li>
+      <li>333333</li>
+      <li>444444</li>
+      <li>555</li>
+      <li>666</li>
+      <li>777</li>
+      <li>888</li>
+      <li>999</li>
+      <li>10</li>
+    </ul>
+  </body>
+</html>

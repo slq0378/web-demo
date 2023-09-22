@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html5</title>
+    <style>
+       video{
+            margin: 50px;
+            height: 300px;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 视频标签 -->
+    <video src="test2.mp4" controls="controls" muted="muted" autoplay poster="../images/2.png"></video>
+    <!-- 兼容多个格式视频-->
+    <video muted="muted" autoplay loop="loop" >
+        <source src="test2.mp4" type="audio/mp4"> 
+        <source src="test.ogg" type="audio/ogg">
+        不支持视频播放
+    </video>
+</body>
+</html>

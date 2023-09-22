@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动画函数</title>
+    <style>
+      button {
+        margin-left: 160px;
+      }
+      .container {
+        position: relative;
+        margin: 20px 0 0 200px;
+      }
+      img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200px;
+        height: 100px;
+      }
+      #gun {
+        position: absolute;
+        right: 10px;
+        top: 100px;
+        font-size: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="../images/beautifulgirl.jpg" alt="" />
+    <button id="gun">gun</button>
+    <script>
+      var img = document.querySelector("img");
+      var gun = document.querySelector("#gun");
+      gun.addEventListener("click", function (e) {
+        // 向左边移动400px
+        animate(img, -400, function () {
+            console.log('动画完毕');
+        });
+      });
+      // 动画函数
+      function animate(obj, target, callback) {
+        // 先清除以前的定时器，只保留当前的一个定时器执行
+        clearInterval(obj.timer);
+        console.log("obj", obj);
+        obj.timer = setInterval(() => {
+          // 步长值写到定时器的里面
+          // 把我们步长值改为整数 不要出现小数的问题
+          var step = (target - obj.offsetLeft) / 10;
+          step = step > 0 ? Math.ceil(step) : Math.floor(step);
+          if (obj.offsetLeft == target) {
+            // 停止动画 本质是停止定时器
+            clearInterval(obj.timer);
+            // 回调函数写到定时器结束里面
+            callback && callback();
+          }
+          // 把每次加1 这个步长值改为一个慢慢变小的值  步长公式：(目标值 - 现在的位置) / 10
+          obj.style.left = obj.offsetLeft + step + "px";
+        }, 15);
+      }
+    </script>
+  </body>
+</html>

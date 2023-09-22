@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var arr = [];
+      // var 方式声明的i是全局变量
+      for (var i = 0; i < 2; i++) {
+        arr[i] = function () {
+          //   debugger;
+          // 捕获全局变量i
+          console.log(i);
+        };
+      }
+      // 延迟执行时，全局变量i是2
+      arr[0]();
+      arr[1]();
+      // let 变量声明（★★★）
+      {
+        let a = 10;
+      }
+      // 块作用域
+      //   console.log('a',a);
+      // const 常量声明（★★★）
+      const b = 10;
+      //   b = 20; // 不可修改
+      // 解构赋值（★★★）
+      // 数组
+      let array = [1, 2, 4, 5, 6, 7];
+      let [a1, a2, a3] = array;
+      console.log(a1, a2, a3);
+      // 对象
+      let obj = {
+        id: 1,
+        name: "sss",
+        age: 12,
+        score: 12.03,
+      };
+      let { name, age } = obj;
+      console.log(name, age);
+      let { name: myName, age: myAge } = obj;
+      console.log(myName, myAge); // 别名
+
+      // 箭头函数（★★★）
+
+      function sum(num1, num2) {
+        return num1 + num2;
+      }
+      //es6写法
+      const sum2 = (num1, num2) => num1 + num2;
+      const obj2 = { name: "张三" };
+      function fn() {
+        console.log(this); //this 指向 是obj对象
+        return () => {
+          console.log(this); //this 指向 的是箭头函数定义的位置，那么这个箭头函数定义在fn里面，而这个fn指向是的obj对象，所以这个this也指向是obj对象
+        };
+      }
+      const resFn = fn.call(obj2);
+      resFn();
+
+      var age2 = 100;
+      var ob3j = {
+        age2: 20,
+        say: () => {
+          console.log(this);
+          console.log(this.age2);
+        },
+      };
+      ob3j.say();
+
+      function sum3(first, ...args) {
+        console.log(first); // 10
+        console.log(args); // [20, 30]
+        let [s2, s3, s4] = args;
+        console.log(s2, s3, s4);
+      }
+      sum3(1, 2, 3, 4, 5, 6);
+
+      let ary = [1, 2, 3];
+      let ary2 = [4, 5, 6];
+      //   ...ary  // 1, 2, 3
+      console.log(...ary); // 1 2 3,相当于下面的代码
+      console.log(1, 2, 3);
+      console.log([...ary, ...ary2]);
+
+      //定义一个集合
+      let arrayLike = {
+        0: "a",
+        1: "b",
+        2: "c",
+        length: 3,
+      };
+      let arr3 = Array.from(arrayLike);
+      console.log(arr3); // a , b , c
+      let arr4 = Array.from(arrayLike, (item) => item + "1111");
+      console.log(arr4);
+
+      let ary5 = [
+        {
+          id: 1,
+          name: "张三",
+        },
+        {
+          id: 2,
+          name: "李四",
+        },
+      ];
+      // 找数组里面符合条件的值，当数组中元素id等于2的查找出来，注意，只会匹配第一个
+      let res5 = ary5.find((item, index) => item.name == "李四");
+      console.log(res5);
+
+      let res6 = ary5.findIndex((item, index) => item.name == "张三");
+      console.log(res6);
+      let test = ary5[1];
+      let res7 = ary5.includes(test);
+      console.log(res7);
+
+      const say = () => "哈哈哈哈 追不到我吧 我就是这么强大";
+      let greet = `${say()},啦啦啦`;
+      console.log(greet);
+      // set
+      const s2 = new Set([1, 2, 3, 4, 2, 1, 2]);
+      console.log(s2);
+      s2.forEach(value=>console.log(value));
+    </script>
+  </body>
+</html>

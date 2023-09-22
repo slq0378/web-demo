@@ -1,0 +1,152 @@
+/* 修改默认contaner 的宽度，根据设计稿修改1280px */
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+/* 去掉默认padding */
+header {
+  padding-left: 0 !important;
+}
+.logo {
+  background: #0092ff;
+}
+.logo img {
+  display: block;
+  /* width: 100%; */
+  max-width: 100%;
+  margin: 0 auto;
+}
+.logo span {
+  height: 50px;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  /* background-color: #0092ff; */
+}
+.nav {
+  background-color: #eee;
+  border-bottom: 1px solid #ddd;
+}
+@media screen and (max-width: 991px) {
+  .nav ul li {
+    float: left;
+    width: 20%;
+  }
+  .nav {
+    margin-bottom: 10px;
+  }
+  .nav li a {
+    font-size: 12px;
+  }
+}
+.nav a {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 30px;
+  font-size: 16px;
+}
+.nav a:hover {
+  background-color: #fff;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+}
+.nav a::before {
+  vertical-align: middle;
+  padding-right: 5px;
+}
+.news {
+  border-bottom: 1px solid #ccc;
+}
+
+/* news */
+
+.news li {
+  float: left;
+  width: 25%;
+  height: 113px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+.news li a {
+  position: relative;
+  display: block;
+  height: 100%;
+  background-color: #0092ff;
+}
+
+.news li a img {
+  width: 100%;
+  height: 100%;
+}
+.news li a p {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 0;
+  height: 44px;
+  padding: 3px 3px;
+  width: 100%;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.news li:nth-child(1) p {
+  font-size: 20px;
+  padding: 10px;
+}
+.news li:nth-child(1) {
+  width: 50%;
+  height: 226px;
+}
+/* publish */
+.publish .row {
+  border-bottom: 1px solid #ccc;
+}
+@media screen and (max-width: 991px) {
+  .publish img {
+    margin-bottom: 20px;
+  }
+  .news li {
+    width: 50% !important;
+  }
+  .news li:nth-child(1) {
+    width: 100% !important; 
+  }
+}
+.publish img {
+  width: 100%;
+  /* height: 100%; */
+  margin-top: 20px;
+}
+
+.banner img {
+  width: 100%;
+}
+
+.hots {
+  display: block;
+  margin: 10px 0;
+  padding: 0 10px 10px;
+  border: 1px solid #ccc;
+}
+.hots span {
+  border-radius: 0;
+}

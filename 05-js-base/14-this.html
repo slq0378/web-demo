@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+    <style>
+        button {
+            display: block;
+            width: 200px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>this指向问题</h3>
+    <p>
+        this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，一般情况下this的最终指向的是那个调用它的对象。
+    </p>
+    <p>
+        <h5>现阶段，我们先了解一下几个this指向</h5>
+        <div>
+            <div>1. 全局作用域或者普通函数中this指向全局对象window（注意定时器里面的this指向window）</div>
+            <div>2. 方法调用中谁调用this指向谁</div>
+            <div>3. 构造函数中this指向构造函数的实例 </div>
+        </div>
+    </p>
+    <div class="main">
+        <button>点我</button>
+    </div>
+    <script>
+        // this 一般情况下this的最终指向的是那个调用它的对象
+        // 1、全局作用域或者普通函数中this指向全局window，注意定时器里this指向window
+        console.log(this);
+        function getName() {
+            console.log('getName:',this);
+        }
+        getName();
+        setTimeout(function(){
+            console.log('setTimeout:',this);
+        },1000)
+
+        // 2、方法调红中谁调用this指向谁
+        var dog = {
+            name:'旺财',
+            speak:function(){
+                // 这里this 指向dog
+                console.log(this.name+' 汪汪汪',this);
+            }
+        }
+        dog.speak()
+
+        var btn = document.querySelector('button')
+        btn.addEventListener('click',function(e){
+            // 这里this指向btn
+            console.log('addEventListener:',this);
+        })
+        // 3、构造函数中this指向构造函数的实例
+        function Fun(){
+            this.name = 'sss'
+            console.log('Fun:',this);
+        }
+        var fun = new Fun();
+    </script>
+</body>
+</html>

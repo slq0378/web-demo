@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>优先级 priority </title>
+	<style type="text/css">
+		div{
+			width: 400px;
+			background: red;
+		}
+
+		div{
+			/*最高优先级*/
+			background: green !important;
+		}
+		.one{
+			background: blue;
+		}
+		/* 0, 0, 1, 0 + 0, 0, 0, 1 = 0011 */
+		.nav a{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="one" style="background: cyan;">减肥减肥就减肥减肥减肥级 </div>
+	<div class="nav">
+		<a href="#">11</a>
+		<a href="#">22</a>
+		<a href="#">33</a>
+		<a href="#">44</a>
+	</div>
+</body>
+</html>

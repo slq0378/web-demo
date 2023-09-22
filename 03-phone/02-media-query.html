@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>媒体查询</title>
+    <style>
+      /* 顺序从大到小 */
+      /* 大于等于960px */
+      @media screen and (min-width: 960px) {
+        body {
+          background-color: blue;
+        }
+      }
+      /* 大于640px ，小于960px */
+      @media screen and (max-width: 959px) {
+        body {
+          background-color: green;
+        }
+      }
+      /* 电脑屏幕 ,宽度小于等于640px*/
+      @media screen and (max-width: 640px) {
+        body {
+          background-color: red;
+        }
+      }
+
+      /* 打印机 */
+      @media print {
+      }
+      /* 所有 */
+      @media all {
+      }
+    </style>
+  </head>
+  <body>
+    <div>Media Query</div>
+  </body>
+</html>

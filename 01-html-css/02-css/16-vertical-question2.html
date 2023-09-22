@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>垂直外边距合并问题,</title>
+    <style type="text/css">
+    .farther {
+        width: 400px;
+        height: 400px;
+        background: grey;
+        /*border: 1px solid transparent;*/
+        /*padding-top: 1px;*/
+        overflow: hidden;
+    }
+
+    .son {
+        width: 200px;
+        height: 200px;
+        background: indianred;
+        margin-top: 100px;
+
+    }
+    span{
+        /*writing-mode: vertical-lr;*/
+    }
+    </style>
+</head>
+
+<body>
+    <span>父子关系的块元素，设置子元素的margin-top:100px会变成设置父元素的margin-top:100px</span>
+    <div>
+        解决方式
+        <ui>
+            <li>父类设置 border: 1px solid transparent;</li>
+            <li>父类设置 padding-top: 1px;</li>
+            <li>父类设置 overflow: hidden;</li>
+        </ui>
+    </div>
+    <div class="farther">
+        <div class="son"></div>
+    </div>
+</body>
+
+</html>

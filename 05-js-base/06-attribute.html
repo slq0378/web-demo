@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .test{
+            color: blue;
+            background-color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="demo" index="1" data-age="33" class="nav" data-name="张三">222</div>
+    <script>
+      var testDom = document.querySelector("div");
+      // 1. 获取元素的属性值
+      // (1) element.属性
+      console.log(testDom.id);
+      //(2) element.getAttribute('属性')  get得到获取 attribute 属性的意思 我们程序员自己添加的属性我们称为自定义属性 index
+      console.log(testDom.getAttribute("id"));
+      console.log('index:',testDom.getAttribute("index"));
+      // 设置属性
+      testDom.setAttribute('index',2)
+      console.log('after setAttribute index:',testDom.getAttribute("index"));
+      testDom.setAttribute('className','test')
+      console.log(testDom.getAttribute("className"));
+     // 删除属性
+     testDom.removeAttribute('className')
+     console.log('after delete:',testDom.getAttribute("className"));
+
+     // H5 规范，自定义属性前面统一加data-，以区分于私有属性
+     console.log(testDom.getAttribute('data-age'));
+     // h5 新增dataset 获取自定义属性，dataset是个数据集合
+     console.log(testDom.dataset);
+     console.log(testDom.dataset.age);
+    </script>
+  </body>
+</html>

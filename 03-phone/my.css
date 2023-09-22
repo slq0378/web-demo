@@ -1,0 +1,15 @@
+div {
+  border: 10px solid blue;
+}
+div a {
+  color: red;
+}
+div a:hover {
+  color: green;
+}
+section {
+  border: 5.5px solid red;
+}
+section p::before {
+  content: "before ";
+}

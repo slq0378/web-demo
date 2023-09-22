@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <button>传统注册事件</button>
+    <button>方法监听注册事件</button>
+    <button>ie9 attachEvent</button> -->
+    <script>
+      function test(params) {
+        var btns = document.querySelectorAll("button");
+        // 1. 传统方式注册事件
+        btns[0].onclick = function () {
+          alert("hi");
+        };
+        btns[0].onclick = function () {
+          alert("hao a u");
+          // 删除事件
+          this.onclick = null;
+        };
+        // 2. 事件侦听注册事件 addEventListener
+        // (1) 里面的事件类型是字符串 必定加引号 而且不带on
+        // (2) 同一个元素 同一个事件可以添加多个侦听器（事件处理程序）
+        var fn = function () {
+          alert(22);
+          // 删除事件监听
+          this.removeEventListener("click", fn);
+        };
+        btns[1].addEventListener("click", fn);
+        btns[1].addEventListener("click", function () {
+          alert(33);
+        });
+        // 3. attachEvent ie9以前的版本支持
+        var fn2 = function () {
+          alert(11);
+          // 删除事件
+          this.detachEvent("onclick", fn2);
+        };
+        btns[2].attachEvent("onclick", fn2);
+        // 封装一个函数，函数中判断浏览器的类型：
+        function addEventListener(element, eventName, fn) {
+          // 判断当前浏览器是否支持addEventListerner方法
+          if (element.addEventListener) {
+            element.addEventListener(eventName, fn);
+          } else if (element.attachEvent) {
+            element.attachEvent("on" + eventName, fn);
+          } else {
+            element["on" + eventName] = fn;
+          }
+        }
+        // **删除事件兼容性解决方案 **
+        function removeEventListener(element, eventName, fn) {
+          // 判断当前浏览器是否支持emoveEventListerner方法
+          if (element.emoveEventListener) {
+            element.emoveEventListener(eventName, fn);
+          } else if (element.detachEvent) {
+            element.detachEvent("on" + eventName, fn);
+          } else {
+            element["on" + eventName] = null;
+          }
+        }
+      }
+    </script>
+
+    <!-- 事件冒泡 -->
+    <p>事件冒泡</p>
+    <ul id="ultest">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li><div>6</div></li>
+      <li><div><p>7</p></div></li>
+    </ul>
+    <script>
+      document.getElementById("ultest").addEventListener("click", onClickUl);
+      function onClickUl(e) {
+        let target = e.target
+        console.log(target,this,target.parentNode);
+        while(target && target.parentNode !== this){
+          target = target.parentNode
+        }
+        if(target.tagName == 'LI' && target.parentNode === this){
+          console.log(`${target.innerText} is clicked`);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,143 @@
+.w{
+    width: 1200px;
+    margin: 0 auto;
+}
+.top{
+    margin: 16px 0 0 ;
+    padding: 0 0 6px 0;
+    border-bottom: 2px solid #b1191a ;
+}
+.bottom{
+    margin: 20px 0;
+    height: 520px;
+    border: 1px solid #ccc;
+}
+.bottom .bottom_title{
+    height: 40px;
+    line-height: 40px;
+    background-color: #ececec;
+}
+.bottom .bottom_title h4{
+    float: left;
+    margin-left: 10px;
+    font-size: 18px;color: #333;
+}
+.bottom .bottom_title span{
+    float: right;
+    margin-right: 10px;
+}
+.bottom .bottom_title a{
+    color: #b1191a;
+}
+.bottom_info{
+    margin-top: 54px;
+    margin-left: 313px;
+}
+.bottom_info li{
+    margin-top: 15px;
+    /* text-align: center; */
+}
+.bottom_info .title{
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    font-size: 14px;
+    color: #4c4c4c;
+}
+.bottom_info input{
+    margin-left: 5px;
+    width: 240px;
+    height: 45px;
+
+}
+.error{
+    margin-left: 10px;
+    color: #b1191a;
+}
+.icon-cross{
+    color: #fff;
+    background-color: #b1191a;
+    border-radius: 50%;
+    padding: 3px;
+}
+.icon-checkmark{
+    color: #fff;
+    background-color: #37b119;
+    border-radius: 50%;
+    padding: 3px;
+}
+.bottom_safe{
+    margin-left: 180px;
+}
+.safe{
+    margin-right: 5px;
+}
+.gao,.zhong,.qiang{
+    padding: 0 13px;
+    color:#fff;
+}
+.gao{
+    background-color: #b1191a;
+}
+.zhong{
+    background-color: #40b83f;
+}
+.qiang{
+    background-color: #f79100;
+}
+.bottom_protocol{
+    margin-left: 100px;
+    line-height: 40px;
+}
+.bottom_protocol input{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+.protocol1{
+    margin-left: 5px;
+    color: #4d4d4d;
+}
+.protocol2 a{
+    margin-left: 5px;
+    color: #1ba1e6;
+}
+.bottom_btn{
+    margin-left: 160px;
+}
+.bottom_btn button{
+    height: 40px;
+    padding: 0 40px;
+    background-color: #b1191a;
+    color: #fff;
+}
+/*footer*/
+.footer {
+    height: 416px;
+    padding-top: 30px;
+    background-color: #f5f5f5;
+}
+
+.mod_service {
+    height: 80px;
+    border-bottom: 1px solid #eee;
+}
+
+.mod_service li {
+    float: left;
+    width: 240px;
+    height: 79px;
+}
+
+.mod_copyright{
+    text-align: center;
+}
+
+.mod_copyright_links{
+    margin: 20px 0 5px 0;
+}
+.mod_copyright_info{
+    line-height: 20px;
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery-属性操作</title>
+    <script src="../framework/jquery.min.js"></script>
+    <style>
+      .quantity-form {
+        margin-top: 20px;
+        width: 80px;
+        height: 22px;
+      }
+      a {
+        text-decoration: none;
+      }
+      .decrement,
+      .increment {
+        float: left;
+        border: 1px solid #cacbcb;
+        height: 18px;
+        line-height: 18px;
+        padding: 1px 0;
+        width: 16px;
+        text-align: center;
+        color: #666;
+        margin: 0;
+        background: #fff;
+        margin-left: -1px;
+      }
+      .itxt {
+        float: left;
+        border: 1px solid #cacbcb;
+        width: 42px;
+        height: 18px;
+        line-height: 18px;
+        text-align: center;
+        padding: 1px;
+        margin: 0;
+        margin-left: -1px;
+        font-size: 12px;
+        font-family: verdana;
+        color: #333;
+        -webkit-appearance: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>--------------</div>
+    <h4>通过prop修改元素属性</h4>
+    <a href="http://www.qq.cn" title="都挺好">都挺好</a>
+    <input type="checkbox" name="" id="" checked />
+    <div class="first" index="1" data-index="2">我是div</div>
+    <span>123</span>
+    <div>--------------</div>
+    <section>1</section>
+    <section>2</section>
+    <section>3</section>
+    <div>--------------</div>
+    <div class="quantity-form">
+      <a href="javascript:;" class="decrement">-</a>
+      <input class="itxt" type="text" value="1" />
+      <a href="javascript:;" class="increment">+</a>
+    </div>
+    <div>--------------</div>
+    <div class="five">five</div>
+    <div>--------------</div>
+    <div class="six">six
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+    </div>
+    <script>
+      $(function () {
+        // 通过prop修改元素属性
+        console.log("read:", $("a").prop("href"));
+        $("a").prop("title", "卷起来");
+        $("input").change(function () {
+          console.log($(this).prop("checked"));
+        });
+        // 读取自定义属性
+        console.log("read:", $("first").attr("index"));
+        // 修改自定义属性
+        $(".first").attr("index", 4);
+        // 读写标准自定义属性
+        console.log($("first").attr("data-index"));
+        $("first").attr("data-index", "5");
+        // 使用data()方法读写自定义属性
+        console.log($("first").data("index"));
+        $("first").data("index", "10");
+        console.log($("first").data("index"));
+        // 增加属性到元素，存在内存上，html结构里不会体现出来
+        $("span").data("uname", "andy");
+        console.log($("span").data("uname"));
+
+        console.log("---------读写文本---------");
+        // 读写文本
+        console.log($("section").text());
+        console.log($("section").html());
+        console.log($("section").val());
+        $("section").eq(0).html("<h1>我是标题</h1>");
+        $("section").eq(1).text("我是字符");
+        $("section").eq(2).html("我也是字符串");
+        console.log("---------自增---------");
+        // 自增
+        var value = $(".itxt").attr("value");
+        console.log(value);
+        $(".decrement").click(function () {
+          if (value > 1) {
+            $(".itxt").attr("value", --value);
+          } else {
+          }
+        });
+        $(".increment").click(function () {
+          $(".itxt").attr("value", ++value);
+        });
+        console.log("-------遍历元素-------");
+        // 遍历元素
+        // 1、	each元素遍历：此方法用于遍历 jQuery 对象中的每一项，回调函数中元素为 DOM 对象，想要使用 jQuery 方法需要转换。
+        $("section").each(function (index, dom) {
+          console.log(index, dom);
+        });
+
+        // 2、each通用便利,可以 遍历数组，dom元素，js对象
+        var list = [1, 2.444, 4, "2333", "sdfsdf", 11.2];
+        $.each(list, function (index, ele) {
+          console.log(index, ele);
+        });
+        $.each($("section"), function (index, ele) {
+          console.log(index, ele);
+        });
+        var obj = { name: "sjsjs", age: 12, score: 233.099 };
+        $.each(obj, function (key, ele) {
+          console.log(key, ele);
+        });
+        console.log("-------元素的创建、添加、删除-------");
+        // 元素的创建、添加、删除方法很多，则重点使用部
+        // 创建元素
+        var div = $("<div>添加元素到尾部</div>");
+        console.log($("<div>1111</div>"));
+        // 添加元素到尾部 父子关系
+        $("body").append(div);
+        $("body").prepend($("<p>添加元素到头部</p>"));
+        // 添加到元素前后，兄弟关系
+        $(".five").after($("<div>在我之后</div>"));
+        $(".five").before($("<div>在我之前</div>"));
+        // 删除元素
+        $('.six').click(function(){
+            // $(this).remove() // 删除自己
+            $(this).empty() // 删除匹配的元素集中所有子节点
+            // $(this).html('') // 清空匹配的元素
+        })
+      });
+    </script>
+  </body>
+</html>

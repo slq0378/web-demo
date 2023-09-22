@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../framework/jquery.min.js"></script>
+    <style>
+      ul {
+        list-style: none;
+      }
+      .nav>li {
+        float: left;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="nav">
+      <li>
+        <a href="#">下啦菜单1</a>
+        <ul class="menu">
+          <li>11111</li>
+          <li>22222</li>
+          <li>33333</li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">下啦菜单2</a>
+        <ul class="menu">
+          <li>11111</li>
+          <li>22222</li>
+          <li>33333</li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">下啦菜单3</a>
+        <ul class="menu">
+          <li>11111</li>
+          <li>22222</li>
+          <li>33333</li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">下啦菜单4</a>
+        <ul class="menu">
+          <li>11111</li>
+          <li>22222</li>
+          <li>33333</li>
+        </ul>
+      </li>
+    </ul>
+    <script>
+      $(function () {
+        $(".menu").hide();
+
+        $(".nav>li").mouseover(function (e) {
+            console.log('mouseover',e);
+        // $(this) 当前元素
+          $(this).children('ul').show();
+        });
+        $(".nav>li").mouseleave(function (e) {
+            console.log('mouseover',e);
+        // $(this) 当前元素
+          $(this).children('ul').hide();
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css3滤镜</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      img {
+        display: inline-block;
+        margin: 10px;
+        width: 300px;
+      }
+      img:nth-child(2):hover {
+        /* 亮度 */
+        filter: brightness(50%);
+      }
+      img:nth-child(3):hover {
+        /* 灰度 */
+        filter: grayscale(100%);
+      }
+      img:nth-child(4):hover {
+        /* 复古 */
+        filter: sepia(50%);
+      }
+      img:nth-child(5):hover {
+        /* 翻转 */
+        filter: invert(100%);
+      }
+      img:nth-child(6):hover {
+        /* 在CSS3中，我们可以使用hue-rotate()方法来实现色相旋转的滤镜效果。 */
+        filter: hue-rotate(180deg);
+      }
+      img:nth-child(7):hover {
+        /* 阴影 */
+        filter: drop-shadow(5px 5px 10px red);
+      }
+      img:nth-child(8):hover {
+        /* 透明度 */
+        filter: opacity(50%);
+      }
+      img:nth-child(9):hover {
+        /* 模糊度 */
+        filter: blur(3px);
+      }
+      img:nth-child(10):hover {
+        /* 对比度 */
+        filter: contrast(40%);
+      }
+      img:nth-child(11):hover {
+        /* 饱和度 */
+        filter: saturate(40%);
+      }
+      img:nth-child(12):hover {
+        /* 复合滤镜  */
+        filter: brightness(50%) saturate(40%) drop-shadow(5px 5px 10px red);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img src="../images/beautifulgirl.jpg" alt="1" srcset="" />
+      <img src="../images/beautifulgirl.jpg" alt="2" srcset="" />
+      <img src="../images/beautifulgirl.jpg" alt="3" srcset="" />
+      <img src="../images/beautifulgirl.jpg" alt="4" srcset="" />
+      <img src="../images/beautifulgirl.jpg" alt="4" srcset="" />
+      <img src="../images/beautifulgirl.jpg" alt="" srcset="" />
+      <img src="../images/beautifulgirl.jpg" alt="" srcset="" />
+      <img src="../images/beautifulgirl.jpg" alt="" srcset="" />
+      <img src="../images/beautifulgirl.jpg" alt="" srcset="" />
+      <img src="../images/beautifulgirl.jpg" alt="" srcset="" />
+      <img src="../images/beautifulgirl.jpg" alt="" srcset="" />
+      <img src="../images/beautifulgirl.jpg" alt="" srcset="" />
+    </div>
+    <div class="right"></div>
+  </body>
+</html>

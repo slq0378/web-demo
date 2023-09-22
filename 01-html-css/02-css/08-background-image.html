@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    /*直接设置根font-size为10px，下面使用rem对应关系 1rem=10px */
+    html {
+        font-size: 10px;
+    }
+
+    body {
+        /*font-size: 16px;*/
+    }
+
+    .nav a: hover {
+        color: red;
+
+    }
+
+    .nav {
+        /*background: red;*/
+    }
+
+    /*使用line-height垂直居中*/
+    .nav .first {
+        display: inline-block;
+        width: 10rem;
+        height: 4rem;
+        font-size: 1.6rem;
+        line-height: 4rem;
+        background: orange;
+        text-align: center;
+    }
+
+    /*通过padding 实现居中效果*/
+    .nav .second {
+        display: inline-block;
+        width: 10rem;
+        font-size: 1.6rem;
+        padding: 0.9rem 0;
+        background: orange;
+        text-align: center;
+    }
+
+    /*使用背景图片 background-image*/
+    .third {
+        color: #fff;
+        height: 50rem;
+        font-size: 1.6rem;
+        padding: 0.9rem 0;
+        /*background: orange;*/
+        /*text-align: center;*/
+        /*背景图*/
+        /*background-image: url(../images/1.png);*/
+        /*是否重复平铺*/
+        /*background-repeat: no-repeat;*/
+        /*显示位置：水平 垂直 （left right center）如果设置一个另一个默认居中 */
+        /*background-position: left center;*/
+        /*background-position: center center;*/
+        /*background-attachment: fixed;*/
+        /*复合写法*/
+        background: transparent url(../images/1.png) repeat-y scroll center top;
+
+    }
+     body {
+        background-image: url(../images/earth.jpg);
+        background-repeat: no-repeat;
+        /*大屏背景图 */
+        background-position: center top;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a class="first" href="#">新闻</a>
+        <a class="second" href="#">财经</a>
+        <a href="#">娱乐</a>
+    </div>
+    <div class="third">
+        点点滴滴弟弟
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>购物车结算页</title>
+    <meta
+      name="description"
+      content="就要买买买jymmm.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!"
+    />
+    <meta
+      name="Keywords"
+      content="网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,就要买买买"
+    />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/iconstyle.css" />
+    <link rel="stylesheet" type="text/css" href="css/account.css" />
+  </head>
+  <body>
+    <!-- 顶部快捷导航栏 -->
+    <div class="shortcut">
+      <div class="w clearfix">
+        <div class="fl">
+          <ul>
+            <li>
+              <i class="icon-location style-red"></i
+              ><a href="#" class="style-red">广东</a>
+            </li>
+          </ul>
+        </div>
+        <div class="fr">
+          <ul>
+            <li>就要买买买欢迎你！</li>
+            <li>
+              <a href="login.html"> 请登录</a>
+              <a href="register.html" class="style-red">免费注册</a>
+            </li>
+            <li class="spacer"></li>
+            <li><a href="#">我的订单</a></li>
+            <li class="spacer"></li>
+            <li>
+              <a href="#">我的买买买</a>
+              <i class="icon-ctrl3"></i>
+            </li>
+            <li class="spacer"></li>
+            <li>
+              <a href="#">买买买会员</a>
+              <i class="icon-ctrl3"></i>
+            </li>
+            <li class="spacer"></li>
+            <li>
+              <a href="#" class="style-red">企业采购</a>
+              <i class="icon-ctrl3"></i>
+            </li>
+            <li class="spacer"></li>
+            <li>
+              <a href="#">客户服务</a>
+              <i class="icon-ctrl3"></i>
+            </li>
+            <li class="spacer"></li>
+            <li>
+              <a href="#">网站导航</a>
+              <i class="icon-ctrl3"></i>
+            </li>
+            <li class="spacer"></li>
+            <li><a href="#">手机买买买</a></li>
+            <li class="spacer"></li>
+            <li><a href="#">网站无障碍</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- header 搜索 -->
+    <div class="w">
+      <div class="header clearfix">
+        <div class="logo">
+          <h1>
+            <a href="index.html" title="就要买买买">就要买买买</a>
+          </h1>
+        </div>
+        <div class="search">
+          <input type="text" placeholder="请输入搜索内容" />
+          <button>搜索</button>
+        </div>
+      </div>
+    </div>
+    <div class="w">
+      <div class="main">
+        <div class="title">全部商品 11</div>
+        <table class="goods_table">
+          <!-- table header -->
+          <thead>
+            <!-- table头部 -->
+            <tr class="header">
+              <th class="selected"><i class="icon-checkbox-unchecked"></i></th>
+              <th class="all">全选</th>
+              <th class="goods">商品</th>
+              <th class="price">单价（元）</th>
+              <th class="count">数量</th>
+              <th class="total">小计（元）</th>
+              <th class="operation">操作</th>
+            </tr>
+          </thead>
+          <!-- table body -->
+          <tbody>
+            <!-- 专营头部 -->
+            <tr class="goods_type">
+              <td class="selected"><i class="icon-checkbox-unchecked"></i></td>
+              <td class="all type_left" colspan="2">
+                <span class="type_red">天下专营店</span>
+              </td>
+              <td colspan="4" class="type_right">
+                <div>运费: <span>¥6.00</span> <em>还差¥99.00免运费</em></div>
+              </td>
+            </tr>
+            <!-- 基本商品 -->
+            <tr style="height: 20px"></tr>
+            <tr class="goods_detail">
+              <td class="selected"><i class="icon-checkbox-unchecked"></i></td>
+              <td class="goods" colspan="2">
+                <img src="upload/detail/detail2_03.jpg" alt="" />
+                <div class="goods_info">
+                  <span class="goods_left">
+                    苹果（Apple）MD463FE/A MAC
+                    Thunderbolt雷电接口至千兆以太网转<br /><i
+                      class="icon-heart"
+                    ></i>
+                    <a href="#">购买礼品包装</a>
+                  </span>
+                  <span class="googs_right">尺码：Thunderbolt至千兆...</span>
+                </div>
+              </td>
+              <td class="price">248.00</td>
+              <td class="count">
+                <span class="count_number">
+                  <span class="count_minus">-</span>
+                  <input
+                    type="number"
+                    class="count_detail"
+                    min="1"
+                    value="1"
+                  /><span class="count_add style-red">+</span></span
+                ><br />
+                <h5>有货</h5>
+              </td>
+              <td class="total">248.00</td>
+              <td class="operation">
+                <span>删除</span><br />
+                <span>移到我的关注</span>
+              </td>
+            </tr>
+            <!-- 可换购商品 -->
+            <tr class="goods_detail_exchange">
+              <td class="selected" style="display: none">
+                <i class="icon-checkbox-unchecked"></i>
+              </td>
+              <td class="goods" colspan="3">
+                <button class="goods_exchange_btn">换购</button>
+                <div class="goods_info">
+                  <span class="goods_left">
+                    活动商品购满<em>2880.0</em>元，即可加价换购商品1件 &gt;
+                  </span>
+                  <span class="googs_right"
+                    ><a href="#">查看换购品 </a>去凑单 &gt;</span
+                  >
+                </div>
+              </td>
+              <td class="price">4999.00</td>
+              <td class="count">
+                <span class="count_number">
+                  <span class="count_minus">-</span>
+                  <input
+                    type="number"
+                    class="count_detail"
+                    min="1"
+                    value="1"
+                  /><span class="count_add style-red">+</span></span
+                ><br />
+                <h5>有货</h5>
+              </td>
+              <td class="total">248.00</td>
+              <td class="operation">
+                <span>删除</span><br />
+                <span>移到我的关注</span>
+              </td>
+            </tr>
+            <!-- 可换购商品详情 -->
+            <tr class="goods_left_right_border">
+              <td class="selected"><i class="icon-checkbox-unchecked"></i></td>
+              <td class="goods" colspan="6">
+                <img src="upload/detail/detail2_03.jpg" alt="" />
+                <div class="goods_info">
+                  <span class="goods_left">
+                    Apple Macbook Air 13.3英寸笔记本电脑 <br />
+                    银色（Corei5）处理器/8GB内存 <br /><i
+                      class="icon-heart"
+                    ></i>
+                    <a href="#">购买礼品包装</a>
+                  </span>
+                  <span class="googs_right"
+                    >颜色MzcBook爱人<br />尺寸：13.3英寸</span
+                  >
+                </div>
+              </td>
+            </tr>
+            <!-- 赠品 -->
+            <tr class="goods_left_right_border">
+              <td colspan="7" class="goods_gift">
+                <div>[赠品]圣迪威（Sendio）MacBook13.3寸屏幕保... X1</div>
+                <div>[赠品]圣迪威（Sendio）MacBook13.3清洁套装... X1</div>
+              </td>
+            </tr>
+            <!-- 基本商品 -->
+            <tr class="goods_detail">
+              <td class="selected"><i class="icon-checkbox-unchecked"></i></td>
+              <td class="goods" colspan="2">
+                <img src="upload/detail/detail2_03.jpg" alt="" />
+                <div class="goods_info">
+                  <span class="goods_left">
+                    苹果（Apple）MD463FE/A MAC
+                    Thunderbolt雷电接口至千兆以太网转<br /><i
+                      class="icon-heart"
+                    ></i>
+                    <a href="#">购买礼品包装</a>
+                  </span>
+                  <span class="googs_right">尺码：Thunderbolt至千兆...</span>
+                </div>
+              </td>
+              <td class="price">248.00</td>
+              <td class="count">
+                <span class="count_number">
+                  <span class="count_minus">-</span>
+                  <input
+                    type="number"
+                    class="count_detail"
+                    min="1"
+                    value="1"
+                  /><span class="count_add style-red">+</span></span
+                ><br />
+                <h5>有货</h5>
+              </td>
+              <td class="total">248.00</td>
+              <td class="operation">
+                <span>删除</span><br />
+                <span>移到我的关注</span>
+              </td>
+            </tr>
+            <tr class="goods_detail">
+              <td class="selected"><i class="icon-checkbox-unchecked"></i></td>
+              <td class="goods" colspan="2">
+                <img src="upload/detail/detail2_03.jpg" alt="" />
+                <div class="goods_info">
+                  <span class="goods_left">
+                    苹果（Apple）MD463FE/A MAC
+                    Thunderbolt雷电接口至千兆以太网转<br /><i
+                      class="icon-heart"
+                    ></i>
+                    <a href="#">购买礼品包装</a>
+                  </span>
+                  <span class="googs_right">尺码：Thunderbolt至千兆...</span>
+                </div>
+              </td>
+              <td class="price">248.00</td>
+              <td class="count">
+                <span class="count_number">
+                  <span class="count_minus">-</span>
+                  <input
+                    type="number"
+                    class="count_detail"
+                    min="1"
+                    value="1"
+                  /><span class="count_add style-red">+</span></span
+                ><br />
+                <h5>有货</h5>
+              </td>
+              <td class="total">248.00</td>
+              <td class="operation">
+                <span>删除</span><br />
+                <span>移到我的关注</span>
+              </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <!-- 其他商品头部 -->
+            <tr class="goods_type">
+              <td class="selected"><i class="icon-checkbox-unchecked"></i></td>
+              <td class="all type_left" colspan="2">
+                <span>神州数码专营店</span>
+              </td>
+              <td colspan="4" class="type_right">
+                <div>运费: <span>¥6.00</span> <em>还差¥99.00免运费</em></div>
+              </td>
+            </tr>
+            <!-- 基本商品 -->
+            <tr style="height: 20px"></tr>
+            <tr class="goods_detail">
+              <td class="selected"><i class="icon-checkbox-unchecked"></i></td>
+              <td class="goods" colspan="2">
+                <img src="upload/detail/detail2_03.jpg" alt="" />
+                <div class="goods_info">
+                  <span class="goods_left">
+                    苹果（Apple）MD463FE/A MAC
+                    Thunderbolt雷电接口至千兆以太网转<br /><i
+                      class="icon-heart"
+                    ></i>
+                    <a href="#">购买礼品包装</a>
+                  </span>
+                  <span class="googs_right">尺码：Thunderbolt至千兆...</span>
+                </div>
+              </td>
+              <td class="price">248.00</td>
+              <td class="count">
+                <span class="count_number">
+                  <span class="count_minus">-</span>
+                  <input
+                    type="number"
+                    class="count_detail"
+                    min="1"
+                    value="1"
+                  /><span class="count_add style-red">+</span></span
+                ><br />
+                <h5>有货</h5>
+              </td>
+              <td class="total">248.00</td>
+              <td class="operation">
+                <span>删除</span><br />
+                <span>移到我的关注</span>
+              </td>
+            </tr>
+          </tbody>
+          <!-- table footer -->
+          <tbody>
+            <tr style="height: 20px"></tr>
+            <tr class="goods_detail">
+              <td class="selected"><i class="icon-checkbox-unchecked"></i></td>
+              <td colspan="2" class="goods_footer_left">
+                <ul class="clearfix">
+                  <li>全选</li>
+                  <li><a href="#">删除选中的商品</a></li>
+                  <li><a href="#">移到我的关注</a></li>
+                  <li><a href="#">清除下柜商品</a></li>
+                </ul>
+              </td>
+              <td colspan="4" class="goods_footer_right">
+                <ul class="clearfix">
+                  <li class="footer_count">结算</li>
+                  <li class="footer_price">
+                    <em class="style-red">¥16283.00</em> <br />
+                    -¥20.00
+                  </li>
+                  <li class="footer_desc">
+                    已选择0件商品 总价（不含运费） ：<br />
+                    已节省：
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+          <!-- 已删除商品 -->
+          <tbody>
+            <tr style="height: 20px"></tr>
+            <tr class="goods_delete">
+              <td colspan="7">
+                已删除商品，您可以重新购买或加关注：
+              </td>
+            </tr>
+            <tr style="height: 10px"></tr>
+            <tr class="goods_delete_detail">
+              <td colspan="7" class="goods_delete_desc">
+                <ul class="clearfix">
+                  <li class="left">圣迪威（Sendio）MacBook13.3清洁套...  </li>
+                  <li class="middle">248.00</li>
+                  <li class="right"><span>重新购买</span> <span>移到我的关注</span></li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- footer -->
+    <div class="footer">
+      <div class="w">
+        <div class="mod_service clearfix">
+          <ul>
+            <li>
+              <i class="mod_service_icon mod_service_zheng"></i>
+              <div class="mod_service_title">
+                <h5>正品保障</h5>
+                <p>正品保障，提供发票</p>
+              </div>
+            </li>
+            <li>
+              <i class="mod_service_icon mod_service_ji"></i>
+              <div class="mod_service_title">
+                <h5>极速物流</h5>
+                <p>急速物流，急速送达</p>
+              </div>
+            </li>
+            <li>
+              <i class="mod_service_icon mod_service_wu"></i>
+              <div class="mod_service_title">
+                <h5>无忧售后</h5>
+                <p>7天无理由退换货</p>
+              </div>
+            </li>
+            <li>
+              <i class="mod_service_icon mod_service_te"></i>
+              <div class="mod_service_title">
+                <h5>特色服务</h5>
+                <p>私人定制家电套餐</p>
+              </div>
+            </li>
+            <li>
+              <i class="mod_service_icon mod_service_bang"></i>
+              <div class="mod_service_title">
+                <h5>帮助中心</h5>
+                <p>您的购物指南</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="mod_help clearfix">
+          <dl>
+            <dt>购物指南</dt>
+            <dd><a href="#">购物流程</a></dd>
+            <dd><a href="#">会员介绍</a></dd>
+            <dd><a href="#">生活旅行/团购</a></dd>
+            <dd><a href="#">常见问题</a></dd>
+            <dd><a href="#">大家电</a></dd>
+            <dd><a href="#">联系客服</a></dd>
+          </dl>
+          <dl>
+            <dt>配送方式</dt>
+            <dd><a href="#">上门自提</a></dd>
+            <dd><a href="#">211限时达</a></dd>
+            <dd><a href="#">配送服务查询</a></dd>
+            <dd><a href="#">配送费收取标准</a></dd>
+            <dd><a href="#">海外配送</a></dd>
+          </dl>
+          <dl>
+            <dt>支付方式</dt>
+            <dd><a href="#">货到付款</a></dd>
+            <dd><a href="#">在线支付</a></dd>
+            <dd><a href="#">分期付款</a></dd>
+            <dd><a href="#">邮局汇款</a></dd>
+            <dd><a href="#">公司转账</a></dd>
+          </dl>
+          <dl>
+            <dt>售后服务</dt>
+            <dd><a href="#">售后政策</a></dd>
+            <dd><a href="#">价格保护</a></dd>
+            <dd><a href="#">退款说明</a></dd>
+            <dd><a href="#">返修/退换货</a></dd>
+            <dd><a href="#">取消订单</a></dd>
+          </dl>
+          <dl>
+            <dt>特色服务</dt>
+            <dd><a href="#">夺宝岛</a></dd>
+            <dd><a href="#">DIY装机</a></dd>
+            <dd><a href="#">延保服务</a></dd>
+            <dd><a href="#">就要E卡</a></dd>
+            <dd><a href="#">就要通信</a></dd>
+          </dl>
+          <dl class="mod_help_qrcode">
+            <dt>帮助中心</dt>
+            <dd><img src="img/wx_cz.jpg" /></dd>
+            <dd><a href="#">品优购客户端</a></dd>
+          </dl>
+        </div>
+        <div class="mod_copyright">
+          <p class="mod_copyright_links">
+            关于我们 | 联系我们 | 联系客服 | 商家入驻 | 营销中心 | 手机品优购 |
+            友情链接 | 销售联盟 | 品优购社区 | 品优购公益 | English Site |
+            Contact U
+          </p>
+          <p class="mod_copyright_info">
+            地址：北京市昌平区建材城西路金燕龙办公楼一层 邮编：100096
+            电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn <br />
+            京ICP备08001421号京公网安备110108007702
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

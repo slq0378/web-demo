@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动画</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      @keyframes move {
+        0% {
+          transform: translateX(0px);
+        }
+
+        100% {
+          transform: translateX(500px);
+        }
+      }
+      @keyframes move2 {
+        from{
+          transform: translateX(0px);
+        }
+
+        to {
+          transform: translateX(500px);
+        }
+      }
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: antiquewhite;
+        /*动画名称，必须 */
+        animation-name: move;
+        /* 动画时间，必须 */
+        animation-duration: 2s;
+        /* 动画开始延迟时间 */
+        animation-delay: 0.5s;
+        /* 动画执行次数 infinite 循环播放*/
+        animation-iteration-count: 2;
+        /* 动画速度曲线 */
+        animation-timing-function: ease-in-out;
+        /* 动画下一周期是否逆向播放 alternate是逆向播放 */
+        animation-direction: alternate;
+        /* 动画是否正在执行或暂停 ，默认是running */
+        animation-play-state: running;
+        /* 动画执行结束的状态，默认backwards回到开始位置，forwards停在结束位置 */
+        animation-fill-mode: forwards;
+      }
+      /* 划一个圈 */
+      p{
+        width: 100px;
+        height: 100px;
+        background-color: lightcoral;
+        /*动画名称，必须 */
+        /* animation-name: circle; */
+        /* 动画时间，必须 */
+        /* animation-duration: 2s; */
+
+        animation: circle 2s ease-in 0s 1 alternate forwards;
+      }
+      @keyframes circle {
+        0%{
+            transform: translate(0,0);
+        }
+        25%{
+          transform: translate(400px,0);
+        }
+        50%{
+          transform: translate(400px,400px);
+        }
+        /* 75%{
+          transform: translate(0,400px);
+        } */
+        /* 100%{
+          transform: translate(0,0);
+        } */
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <p></p>
+  </body>
+</html>

@@ -1,0 +1,375 @@
+/* 详情页  */
+/* top_nav */
+.top_nav_left {
+  float: left;
+  width: 360px;
+}
+
+.top_nav_left li {
+  float: left;
+}
+
+.top_nav_left li a {
+  display: inline-block;
+  width: 90px;
+  padding-left: 30px;
+  font-size: 16px;
+  color: #000;
+}
+
+.top_nav_right {
+  float: left;
+  width: 840px;
+}
+
+.top_nav_right li {
+  float: left;
+}
+
+.top_nav_right li a {
+  display: block;
+  padding: 0 22px;
+}
+
+/* main */
+.main {
+  /* margin-bottom: 10px; */
+  height: 640px;
+}
+.main .left {
+  float: left;
+  height: 640px;
+  width: 450px;
+}
+.left_title {
+  margin-top: 20px;
+  height: 25px;
+  font-size: 12px;
+  color: #333;
+}
+.left_show_img {
+  padding: 30px 0;
+  border: 1px solid #eee;
+  text-align: center;
+}
+.left_show_img img {
+  width: 164px;
+  height: 368px;
+}
+.left_img_list {
+  margin-top: 60px;
+  height: 60px;
+}
+.left_img_list i {
+  font-size: 45px;
+  line-height: 60px;
+}
+.left_img_list .icon-ctrl {
+  padding-left: 15px;
+}
+.left_img_list .icon-ctrl1 {
+  padding-right: 15px;
+}
+.left_img_list li {
+  float: left;
+}
+.left_img_list img {
+  width: 66px;
+  height: 60px;
+}
+.left_info {
+  height: 60px;
+  line-height: 60px;
+  display: block;
+}
+.left_info li {
+  float: left;
+  display: block;
+  text-align: center;
+}
+.left_info li:nth-child(1) {
+  width: 150px;
+}
+.left_info li:nth-child(2) {
+  width: 90px;
+}
+.left_info li:nth-child(3) {
+  width: 135px;
+}
+.left_info li:nth-child(4) {
+  float: right;
+  padding-right: 15px;
+  width: 60px;
+  text-align: right;
+}
+.left_info .icon-share2,
+.left_info .icon-heart {
+  color: #e60012;
+}
+.main .right {
+  float: left;
+  margin-left: 60px;
+  height: 640px;
+  width: 690px;
+}
+.common_title {
+  display: inline-block;
+  width: 48px;
+  padding: 0 10px;
+  overflow: hidden;
+  text-align: justify;
+  color: #666;
+}
+.common_title::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  vertical-align: top;
+}
+.right_title {
+  margin-top: 40px;
+  font-size: 16px;
+  color: #333;
+}
+.right_info {
+  margin-top: 18px;
+  font-size: 12px;
+  color: #e12228;
+}
+.right_price {
+  margin-top: 15px;
+  position: relative;
+  height: 114px;
+  background-color: #fee9eb;
+}
+.price_top {
+  height: 40px;
+}
+.price_top span:nth-child(2) {
+  font-size: 24px;
+  color: #e12228;
+}
+.price_top span:nth-child(3) {
+  font-size: 12px;
+  color: #c81623;
+}
+.price_top span:nth-child(4) {
+  float: right;
+  padding-right: 10px;
+  font-size: 12px;
+  line-height: 40px;
+  color: #999;
+}
+
+.price_bottom {
+  height: 74px;
+}
+.price_bottom em {
+  padding: 1px 3px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #c81623;
+}
+.price_bottom span:nth-child(1) {
+  float: left;
+  margin-top: 5px;
+  height: 74px;
+}
+.price_bottom span:nth-child(2) {
+  float: left;
+  height: 74px;
+  line-height: 30px;
+  width: 520px;
+  vertical-align: top;
+}
+.right_exchange {
+  margin-top: 10px;
+}
+.right_support {
+  height: 20px;
+  line-height: 20px;
+}
+.right_support span:nth-child(1) {
+  display: inline-block;
+}
+.right_support span:nth-child(2) {
+  vertical-align: top;
+  display: inline-block;
+}
+.right_address {
+  margin-top: 15px;
+}
+.right_address span:nth-child(1) {
+  float: left;
+  height: 55px;
+}
+.right_address span:nth-child(2) {
+  display: block;
+  float: left;
+  width: 434px;
+}
+.right_address span:nth-child(3) {
+  display: block;
+  float: left;
+  margin-top: 15px;
+}
+.right_line {
+  margin-top: 5px;
+  width: 525px;
+  height: 1px;
+  background-color: #eee;
+}
+.right_other {
+  margin-top: 10px;
+  height: 35px;
+  line-height: 35px;
+}
+.right_other .common_title {
+  height: 35px;
+  line-height: 35px;
+}
+.right_other .right_line {
+  margin-top: 20px;
+}
+.common_select {
+  display: inline-block;
+  height: 12px;
+  line-height: 12px;
+  margin-right: 10px;
+  padding: 10px 25px;
+  font-size: 12px;
+  color: #333;
+  background-color: #f7f7f7;
+  border: 1px solid transparent;
+}
+.current{
+  border: 1px solid #c81623;
+}
+.common_select:hover {
+  border: 1px solid #c81623;
+}
+.right_buy_count {
+  float: left;
+  margin-top: 10px;
+  width: 52px;
+  height: 44px;
+  /* border: 1px solid #eee; */
+}
+.right_buy_count input {
+  float: left;
+  width: 34px;
+  height: 44px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+.right_buy_count button {
+  float: left;
+  margin-left: -1px;
+  height: 22px;
+  width: 16px;
+  color: #666;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.right_buy_btn {
+  float: left;
+  margin: 10px 0 0 10px;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 20px;
+  color: #fff;
+  background-color: #c81623;
+}
+/* fixedtool */
+.fixedtool {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  margin-top: -68px;
+  width: 66px;
+  height: 136px;
+  background-color: #e60012;
+}
+
+fixedtool a {
+  display: block;
+}
+
+/* detail 商品详情 */
+.detail {
+  margin: 10px 0;
+}
+.detail .left {
+  float: left;
+  width: 206px;
+  height: 1000px;
+  border: 1px solid #eee;
+}
+.detail .left img{
+  width: 100%;
+}
+
+.detail .right {
+  float: left;
+  width: 980px;
+  margin-left: 10px;
+  /* border: 1px solid #eee; */
+}
+.detail .right_top {
+  height: 340px;
+  border: 1px solid #eee;
+}
+.right_top div:nth-child(1) {
+  height: 38px;
+  line-height: 38px;
+
+  color: #fff;
+  background-color: #f1f1f1;
+}
+.right_top div:nth-child(1) span {
+  display: inline-block;
+  width: 90px;
+  text-align: center;
+  background-color: #c81623;
+}
+.right_top .right_select {
+  margin-top: 13px;
+  margin-left: 15px;
+}
+.right_select li {
+  float: left;
+  margin-top: 20px;
+  width: 160px;
+  text-align: center;
+}
+.right_select li img {
+  width: 130px;
+  height: 130px;
+  /* border: 1px solid #c81623; */
+}
+.right_select h4 {
+  margin-top: 10px;
+}
+.right_shopping {
+  float: right;
+  margin-top: 20px;
+  width: 160px;
+  height: 160px;
+  text-align: center;
+}
+.right_shopping img {
+  width: 130px;
+  height: 130px;
+}
+.bottom li:nth-child(1) {
+  margin: 10px 0 10px 10px;
+}
+.bottom li:nth-child(2) {
+  background-color: #fbfbfb;
+  text-align: center;
+}
+.bottom li:nth-child(2) img {
+  width: 100%;
+}

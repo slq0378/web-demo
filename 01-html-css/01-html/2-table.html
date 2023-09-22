@@ -1,0 +1,118 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    thead,
+    tfoot {
+        background-color: #3f87a6;
+        color: #fff;
+    }
+
+    tbody {
+        background-color: #e4f0f5;
+    }
+
+    caption {
+        padding: 10px;
+        caption-side: bottom;
+    }
+
+    table {
+        border-collapse: collapse;
+        border: 2px solid rgb(200, 200, 200);
+        letter-spacing: 1px;
+        font-family: sans-serif;
+        font-size: .8rem;
+    }
+
+    td,
+    th {
+        border: 1px solid rgb(190, 190, 190);
+        padding: 5px 10px;
+    }
+
+    td {
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>成绩</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="2">张三</td>
+                <td>33</td>
+                <!-- <td>99.9</td> -->
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>33</td>
+                <td>99.9</td>
+            </tr>
+            <tr>
+                <td>莉丝</td>
+                <td colspan="2">53</td>
+                <!-- <td>11.9</td> -->
+            </tr>
+            <tr>
+                <td colspan="3">无</td>
+                <!--           <td>88</td>
+                <td>22.9</td> -->
+            </tr>
+        </tbody>
+        <tr>
+            <td>大口袋</td>
+            <td>12</td>
+            <td>65.9</td>
+        </tr>
+        <tfoot>
+            <tr>
+                <td colspan="3">尾部</td>
+            </tr>
+        </tfoot>
+    </table>
+    <br>
+    <table>
+        <caption>
+            <h3>个人信息表</h3>
+        </caption>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>成绩</th>
+        </tr>
+        <tr>
+            <td rowspan="2">张三</td>
+            <td>33</td>
+            <td>99.9</td>
+        </tr>
+        <tr>
+            <td>莉丝</td>
+            <td>53</td>
+            <!-- <td>11.9</td> -->
+        </tr>
+        <tr>
+            <td>旺盛</td>
+            <td>88</td>
+            <td>22.9</td>
+        </tr>
+        <tr>
+            <td>大口袋</td>
+            <td>12</td>
+            <td>65.9</td>
+        </tr>
+    </table>
+</body>
+
+</html>

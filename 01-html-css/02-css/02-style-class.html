@@ -1,0 +1,123 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css选择器</title>
+    <style type="text/css">
+    /*标签选择器*/
+    li {
+        color: green;
+    }
+
+    /*类选择器*/
+    .my-class {
+        color: darkred;
+    }
+
+    /*id选择器*/
+    #my-id {
+        color: gold;
+    }
+
+    .blue {
+        color: blue;
+    }
+
+    .red {
+        color: red;
+    }
+
+    .orange {
+        color: orange;
+    }
+
+    .font100 {
+        font-size: 100px;
+    }
+
+    /*标签属性选择器*/
+    input[type="text"] {
+        color: gold;
+    }
+
+    /*伪类选择器*/
+    #my-id:hover {
+        background: darkcyan;
+    }
+
+    /*伪元素选择器*/
+    #my-id::first-line {
+        background: red;
+    }
+
+    /* 后代选择器 */
+    li div:first-child {
+        font-size: 44px;
+    }
+
+    /* 子选择器*/
+    .li2>span {
+        font-size: 10px;
+        color: red;
+    }
+
+    /*相邻兄弟选择器*/
+    .li2+div {
+        color: orange;
+    }
+
+    /*通用兄弟选择器*/
+    ul~div {
+        text-align: right;
+    }
+
+    .nav a {
+        color: #9f0;
+    }
+    a:hover{
+        background: red;
+    }
+    a:link{
+        /*background: orange;*/
+    }
+    a:visited{
+        background: green;
+    }
+    a:active{
+        background: gold;
+        text-decoration: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="#">主页</a>
+        <a href="#">列表</a>
+        <a href="#">其他</a>
+    </div>
+    <ul>
+        <li>
+            <div>111</div>
+            <div>111-1</div>
+        </li>
+        <li>
+            <div class="li2"><span>222</span></div>
+            <div>222-2</div>
+        </li>
+        <li>
+            <div>333</div>
+            <div>333-3</div>
+        </li>
+    </ul>
+    <div class="my-class">得到的</div>
+    <div id="my-id">CSS 是开放网络的核心语言之一，由 W3C 规范 实现跨浏览器的标准化。CSS节省了大量的工作。 样式可以通过定义保存在外部.css文件中，同时控制多个网页的布局，这意味着开发者不必经历在所有网页上编辑布局的麻烦。CSS 被分为不同等级：CSS1 现已废弃， CSS2.1 是推荐标准， CSS3 分成多个小模块且正在标准化中。</div>
+    <input type="text" name="333" />
+    <input type="number" name="ddd" value="1323213" />
+    <div>
+        <span class="blue font100">G</span><span class="red font100">o</span><span class="orange font100">o</span><span class="blue font100">g</span><span class="font100">l</span><span class="red font100">e</span>
+    </div>
+</body>
+
+</html>

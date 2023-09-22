@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>弹性盒子FlexBox</title>
+    <style>
+      div:first-child {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        padding: 10px;
+        border: 10px solid blue;
+        /* css2 盒子width = width+padding+border */
+        box-sizing: content-box;
+      }
+      div:last-child {
+        width: 200px;
+        height: 200px;
+        background-color: lightcoral;
+        padding: 10px;
+        border: 10px solid red;
+        /* css3 盒子width 包含 padding，border，不会撑开盒子 */
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // ES5新增方法
+      var arr = [8, 4, 1, 10, 3];
+      // 遍历数组,不改变原数组
+      arr.forEach(function (value, index, array) {
+        console.log(index, value, array);
+      });
+      // 过滤数组,返回新数组
+      let res = arr.filter(function (value, index, array) {
+        return value > 5;
+      });
+      console.log("filter:", res);
+      // some，是否存在满足条件的元素，返回ture or false。查到一个立即返回
+      res = arr.some(function (value, index, array) {
+        return value <= 5;
+      });
+      console.log("some:", res);
+      // trim方法去除字符串两端的空格
+      var str = "   lakaak觉得就到家   ";
+      console.log("str:", str);
+      console.log("str:", str.trim());
+      // 获取对象的属性名
+      var obj = {
+        id: 1,
+        pname: "小米",
+        price: 1999,
+        num: 2000,
+      };
+      var result = Object.keys(obj);
+      console.log(result);
+      //   设置或修改对象中的属性 Object.defineProperty
+      Object.defineProperty(obj, 'num', {
+        value: 10,
+        writable: true / false, //如果值为false 不允许修改这个属性值
+        enumerable: false, //enumerable 如果值为false 则不允许遍历
+        configurable: false, //configurable 如果为false 则不允许删除这个属性 属性是否可以被删除或是否可以再次修改特性
+      });
+      console.log(obj);
+    </script>
+  </body>
+</html>

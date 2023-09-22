@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom树</title>
+  </head>
+  <body>
+    <div class="name">张三</div>
+    <div class="name">莉丝</div>
+    <div id="age">12</div>
+    <div id="age">99</div>
+    <p>哈哈哈1111</p>
+    <p>哈哈哈2222</p>
+    <script>
+      // 获取dom元素
+      // 通过id获取，如果有多个只会获取第一个，区分大小写
+      var age = document.getElementById("age");
+      console.log("age dom:", age);
+      // 修改属性
+      age.style = "color:red;";
+      // 通过class名获取，返回类数组
+      var names = document.getElementsByClassName("name");
+      console.log("name dom:", names);
+      names[0].style = "font-size:20px;";
+      names[1].style = "font-size:40px;";
+      // 通过标签获取，返回类数组
+      var infos = document.getElementsByTagName("p");
+      console.log("p dom:", infos);
+      infos[0].innerText = "wo jiu shi wo!";
+      infos[1].innerHTML = "runing !";
+      // querySelector 如果有多个只会获取第一个，需要传入. 和 #
+      var name2 = document.querySelector(".name");
+      console.log("querySelector dom:", name2);
+      var age2 = document.querySelector("#age");
+      console.log("querySelector dom:", age2);
+      var infos2 = document.querySelector("p");
+      console.log("querySelector dom:", infos2);
+      // querySelectorAll 这个是获取所有匹配的元素
+      var name3 = document.querySelectorAll(".name");
+      console.log("querySelectorAll dom:", name3);
+      var age3 = document.querySelectorAll("#age");
+      console.log("querySelectorAll dom:", age3);
+      var infos3 = document.querySelectorAll("p");
+      console.log("querySelectorAll dom:", infos3);
+
+      // 获取特殊元素
+      var body = document.body;
+      console.log("body:", body);
+      var html = document.documentElement;
+      console.log("html:", html);
+      console.log("head:", document.head);
+      console.log("title:", document.title);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2d动画</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        display: inline-block;
+        margin: 100px 100px;
+        position: relative;
+        width: 300px;
+        height: 300px;
+        overflow: hidden; /*隐藏溢出元素*/
+        background-color: antiquewhite;
+      }
+      div::after{
+        content: "我来了";
+        display: block;
+        width: 300px;
+        height: 300px;
+        line-height: 300px;
+        text-align: center;
+        background-color: lightblue;
+        transform-origin: left bottom; /*指定中心点便于隐藏*/ 
+        transform: rotate(180deg);
+        transition: all 0.3s;
+      }
+      div:hover::after{
+        transform: rotate(0deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+  </body>
+</html>

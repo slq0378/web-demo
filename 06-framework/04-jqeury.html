@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../framework/jquery.min.js"></script>
+  </head>
+  <body>
+    <div>111</div>
+    <p>2222</p>
+    <span>3333</span>
+    <script>
+        // jquery入口函数
+        // 1、第一种书写更方便,界面加载后再调用
+        $(function(){
+            console.log('jquery入口函数----11111');
+            $('div').hide()
+        })
+        // 2、
+        $(document).ready(function(){
+            console.log('jquery入口函数----222222');
+        })
+        window.addEventListener('load',function(){
+            console.log('load');
+        })
+    </script>
+  </body>
+</html>

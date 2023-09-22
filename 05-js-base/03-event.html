@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js事件机制</title>
+    <style>
+      .defaultBtn {
+        background-color: blue;
+        color:#fff;
+      }
+      .mybtn {
+        font-size: 33px;
+        color: lightcoral;
+        margin: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="defaultBtn">点我</button><br />
+    <img
+      id="myimg"
+      src="../images/beautifulgirl.jpg"
+      style="width: 200px; height: 100px"
+      title="基督教"
+      alt=""
+    /><br />
+    <input id="myinput" type="text" />
+    <button id="commitBtn">提交</button><br />
+    <script>
+      // 事件，默认参数是event对象
+      function clickBtn(params) {
+        console.log("clickBtn", params);
+        btn.innerText = "tesldl";
+        //  可以设置html格式，自动识别
+        btn.innerHTML = "<strong>京津冀</strong><div>234</div>";
+        btn.title = "章三";
+        // 修改样式
+        btn.style = "display:block;border:1px solid red;margin:0 auto;";
+        // 添加类样式
+        btn.className = "mybtn"; // 替换为新的class，原有的全部失效
+        btn.className = btn.className + " mybtn"; // 追加新的class，一般用这个
+      }
+      var btn = document.querySelector("button");
+      // 添加事件
+      btn.onclick = clickBtn;
+
+      var myimg = document.querySelector("#myimg");
+      myimg.onclick = function () {
+        // 更换图片路径
+        myimg.src = "../images/1.png";
+        myimg.title = "劳斯莱斯";
+      };
+      // 表单元素的属性操作
+      var myinput = document.querySelector("#myinput");
+      var commitBtn = document.querySelector("#commitBtn");
+      commitBtn.onclick = function () {
+        console.log("commitBtn");
+        myinput.value = "kdkd";
+        // myinput.disabled = true
+        // this 指向的是事件函数的调用者 btn
+        this.checked = true;
+      };
+    </script>
+  </body>
+</html>

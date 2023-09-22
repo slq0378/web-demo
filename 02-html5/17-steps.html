@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2d动画</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        font-size: 20px;
+        width: 0px;
+        height: 25px;
+        overflow: hidden; /*隐藏溢出元素*/
+        background-color: antiquewhite;
+        animation: move 2s steps(4);
+      }
+      @keyframes move {
+        0% {
+          width: 0;
+        }
+        100% {
+          width: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>你好啊啊</div>
+  </body>
+</html>

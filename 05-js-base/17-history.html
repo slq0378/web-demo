@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h4>### history对象</h4>
+
+    <p>
+      - window对象给我们提供了一个
+      history对象，与浏览器历史记录进行交互。该对象包含用户（在浏览器窗口中）访问过的URL。
+    </p>
+    <p>- back() 后退</p>
+    <p>- forward() 前进</p>
+    <p>- go(num) 跳转到第几页</p>
+    <script>
+        console.log(history);
+        // length 历史长度
+        var his =  {
+            length: 1,
+             scrollRestoration: 'auto', 
+             state: null
+            }
+        history.back()
+
+        
+    </script>
+  </body>
+</html>

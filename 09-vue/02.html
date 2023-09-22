@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <form action="">
+        <div>
+          用户名：
+          <input type="text" v-on:keyup.delete="clear" v-model="name">
+        </div> 
+         <div>
+          密码：
+          <input type="text" v-on:keyup.enter="submit" v-model="password">
+        </div>
+        <div>
+          <input type="button" v-on:click="submit" value="提交">
+        </div>
+      </form>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+           name:'',
+           password:''
+        },
+        methods: {
+          clear(){
+            this.name = ''
+          },
+          submit() {
+            console.log("submit",this.name,this.password);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

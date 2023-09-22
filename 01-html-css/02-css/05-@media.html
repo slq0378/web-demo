@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    .back {
+        background: red;
+    }
+
+    /*小于500px*/
+    @media (min-width: 500px) {
+        .back {
+            background: green;
+        }
+    }
+
+    /*小于1000px，注意顺序，小的放前面*/
+    @media (min-width: 1000px) {
+        .back {
+            background: blue;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="back">
+        在下面的 CSS中，我们将给 "
+
+        <body>" 元素一个粉红色的背景色。但是，我们随后使用@media创建样式表的一个部分，该部分仅适用于视口大于30em的浏览器。如果浏览器的宽度大于30em，则背景色将为蓝色。
+    </div>
+</body>
+
+</html>

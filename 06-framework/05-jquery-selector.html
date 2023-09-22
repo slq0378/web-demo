@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../framework/jquery.min.js"></script>
+</head>
+<body>
+    <div class="test1">333</div>
+    <p id="test2">test</p>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>
+            <a href="#">go go go</a>
+        </li>
+    </ul>
+    <script>
+        console.log(document.querySelector('div'));
+        $(function(){
+            // 基础选择器
+            // console.log($('.test1').css('color','red'));
+            // console.log($('#test2').css('color','green'));
+            // console.log($('div'));
+            // console.log($('div,p'));
+            // console.log($('*'));
+            // console.log('----------');
+            // 层级选择器
+            // console.log($('ul>li>a').css('color','blue'));
+            // console.log($('ul li').css('color','red'));
+            // 筛选选择器
+            // $('li:first').css('background',"red")
+            // $('li:last').css('background',"blue")
+            // 第三个元素，从0开始
+            // $('li:eq(2)').css('background',"green")
+            // 奇数行
+            $('li:odd').css('color',"red")
+            $('li:even').css('color',"blue")
+
+            // 其他方法
+            $('li:odd').parent().css('background',"lightblue")
+            $('li:odd').children('a').css('background',"red")
+            $('li:odd').find('a').css('background',"red")
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../framework/jquery.min.js"></script>
+    <style>
+      body {
+        height: 2000px;
+      }
+      .container {
+        /* overflow: hidden; */
+        /* display: inline-block; */
+        margin: 10px;
+        width: 200px;
+        height: 200px;
+        padding: 10px;
+        border: 10px solid #eee;
+      }
+      .item {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+      }
+      button {
+        position: fixed;
+        bottom: 0px;
+        right: 10px;
+        width: 50px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container first">
+      <div class="item"></div>
+    </div>
+    <button>TOP</button>
+    <script>
+      $(function () {
+        // 自身宽高
+        console.log($("div").width(), $("div").height());
+        // 包含padding
+        console.log($("div").innerWidth(), $("div").innerHeight());
+        // 包含padding border
+        console.log($("div").outerWidth(), $("div").outerHeight());
+        // 包含padding border margin
+        console.log($("div").outerWidth(true), $("div").outerHeight(true));
+
+        // 位置操作主要有三个： offset()、position()、scrollTop()/scrollLeft()
+        // offset 相对于夫节点移动 ，相当于设置    position: relative，然后设置left、top
+        $(".first .item").offset({ left: 100, top: 100 });
+        // position 只读，获取left和top
+        console.log($(".first .item").position());
+        // 滚动
+        $(document).scrollTop(100);
+        // 被卷去的头部 scrollTop()  / 被卷去的左侧 scrollLeft()
+        // 页面滚动事件
+        var boxTop = $(".container").offset().top;
+        $(window).scroll(function () {
+          // console.log(11);
+          console.log($(document).scrollTop());
+          if ($(document).scrollTop() >= boxTop) {
+            $("button").fadeIn();
+          } else {
+            $("button").fadeOut();
+          }
+        });
+        // 返回顶部
+        $("button").click(function () {
+          // $(document).scrollTop(0);
+          $("body, html").stop().animate({
+            scrollTop: 0,
+          });
+          // $(document).stop().animate({
+          //     scrollTop: 0
+          // }); 不能是文档而是 html和body元素做动画
+        });
+      });
+    </script>
+  </body>
+</html>

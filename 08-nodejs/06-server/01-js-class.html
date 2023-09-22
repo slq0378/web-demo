@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象和类</title>
+  </head>
+  <body>
+    <div>对象和类</div>
+    <script>
+      // 对象
+      // 字面量创建对象
+      var obj = {
+        id: 1,
+        name: "jd",
+        age: 12,
+      };
+      console.log(obj);
+
+      // 构造函数创建对象
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      var per = new Person("bj", 12);
+      console.log(per);
+      // 类 class 声明创建一个基于原型继承的具有给定名称的新类。
+      class Animal {
+        id = 0;
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+        //  添加方法
+        walk() {
+          console.log(this.name + " is walking");
+        }
+      }
+      var a1 = new Animal("我是谁", 1);
+      console.log(a1);
+      a1.walk()
+      // 继承
+      class Dog extends Animal {
+        id = 1;
+        //  添加方法
+        walk() {
+          super.walk()
+          console.log(this.name + " is walking");
+        }
+      }
+      var dog1 = new Dog("旺财", 2);
+      console.log(dog1);
+      dog1.walk()
+    </script>
+  </body>
+</html>

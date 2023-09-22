@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>视频播放</title>
+    <link rel="stylesheet" href="zymedia/zy.media.min.css" />
+    <script src="zymedia/zy.media.min.js"></script>
+    <style>
+      #modelView {
+        background-color: #dddddd;
+        z-index: 0;
+        opacity: 0.7;
+        height: 100%;
+        width: 100%;
+        position: relative;
+      }
+
+      .playvideo {
+        padding-top: auto;
+        z-index: 9999;
+        position: relative;
+        /* width: 300px; */
+        /* height: 200px; */
+      }
+
+      .zy_media {
+        z-index: 999999999;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="playvideo">
+      <div class="zy_media">
+        <video data-config='{"mediaTitle": "测试测试"}'>
+          <source src="../images/test.mp4" type="video/mp4" />
+          您的浏览器不支持HTML5视频
+        </video>
+      </div>
+      <div id="modelView">&nbsp;</div>
+    </div>
+    <div>
+      使用说明 引入样式文件zy.media.css和js文件zy.media.js
+      输入html结构，例如视频，其中video标签的data-config属性用于设置参数，
+      <xmp>
+      <div class="zy_media">
+        <video
+          poster="test.jpg"
+          data-config='{"mediaTitle": "《疯狂动物城》--腾讯视频"}'
+        >
+          <source src="test.mp4" type="video/mp4" />
+          您的浏览器不支持HTML5视频
+        </video>
+      </div>
+      </xmp>
+      绑定媒体节点，zymedia是一个全局对象，可重复调用，不返回视频实例，需要的话建议直接获取视频和监听相应事件，第二个参数是用于批量设置视频参数，示例
+      <xmp>
+      zymedia('video'); // zymedia('video', {...参数});
+      </xmp>
+      zymedia是做批量处理用的，单独设置用每个音视频上的data-config，
+      每个音视频的src可随时替换（比如document.querySelector('video').src =
+      'test.mp4'），容器尺寸会保持不变 参数
+    </div>
+    <script>
+      zymedia("video", {
+        autoplay: false,
+      });
+    </script>
+  </body>
+</html>

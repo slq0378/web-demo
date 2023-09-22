@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>筋斗云效果</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background-color: #000;
+      }
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+      }
+      .c_nav {
+        width: 900px;
+        height: 42px;
+        background: #fff;
+        margin: 100px auto;
+        border-radius: 5px;
+        position: relative;
+      }
+
+      .c_nav ul {
+        position: absolute;
+      }
+      .c_nav li {
+        float: left;
+        width: 83px;
+        text-align: center;
+        line-height: 42px;
+      }
+      .c_nav li a {
+        display: inline-block;
+        height: 42px;
+        color: #333;
+      }
+      .c_nav li a:hover {
+        color: #fff;
+      }
+      .cloud {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 83px;
+        height: 42px;
+        background: url(../images/cloud.gif) no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div>筋斗云效果</div>
+    <div id="c_nav" class="c_nav">
+      <span class="cloud"></span>
+      <ul>
+        <li><a href="#">测试效果1</a></li>
+        <li><a href="#">测试效果2</a></li>
+        <li><a href="#">测试效果3</a></li>
+        <li><a href="#">测试效果4</a></li>
+        <li><a href="#">测试效果4</a></li>
+      </ul>
+    </div>
+
+    <script>
+      // 动画函数
+      function animate(obj, target, callback) {
+        // 先清除以前的定时器，只保留当前的一个定时器执行
+        clearInterval(obj.timer);
+        obj.timer = setInterval(() => {
+          // 步长值写到定时器的里面
+          // 把我们步长值改为整数 不要出现小数的问题
+          var step = (target - obj.offsetLeft) / 10;
+          step = step > 0 ? Math.ceil(step) : Math.floor(step);
+          if (obj.offsetLeft == target) {
+            // 停止动画 本质是停止定时器
+            clearInterval(obj.timer);
+            // 回调函数写到定时器结束里面
+            callback && callback();
+          }
+          // 把每次加1 这个步长值改为一个慢慢变小的值  步长公式：(目标值 - 现在的位置) / 10
+          obj.style.left = obj.offsetLeft + step + "px";
+        }, 15);
+      }
+
+      var li = document.querySelectorAll("li");
+      var nav = document.querySelector(".c_nav");
+      var cloud = nav.querySelector(".cloud");
+      var current = 0;
+      for (let i = 0; i < li.length; i++) {
+        // 鼠标经过把当前li作为目标值
+        li[i].addEventListener("mouseenter", function () {
+          console.log("this.offsetLeft", this.offsetLeft);
+          animate(cloud, this.offsetLeft);
+        });
+        // 鼠标离开就回到起始位置
+        li[i].addEventListener("mouseleave", function () {
+          console.log("current:", current);
+          animate(cloud, current);
+        });
+        // 点击鼠标时，设置为目标值
+        li[i].addEventListener("click", function () {
+          current = this.offsetLeft;
+        });
+      }
+    </script>
+  </body>
+</html>

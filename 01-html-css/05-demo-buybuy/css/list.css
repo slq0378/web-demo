@@ -1,0 +1,175 @@
+/* 详情页 */
+/* secondkill  */
+.secondkill {
+    position: absolute;
+    top: 40px;
+    left: 190px;
+    padding-left: 20px;
+    padding-top: 5px;
+    height: 32px;
+    border-left: 2px solid #b1191a;
+}
+
+/* top_nav */
+.top_nav_left {
+    float: left;
+    width: 360px;
+}
+
+.top_nav_left li {
+    float: left;
+
+}
+
+.top_nav_left li a {
+    display: inline-block;
+    width: 90px;
+    padding-left: 30px;
+    font-size: 16px;
+    color: #000;
+}
+
+.top_nav_right {
+    float: left;
+    width: 840px;
+}
+
+.top_nav_right li {
+    float: left;
+}
+
+.top_nav_right li a {
+    display: block;
+    padding: 0 22px;
+}
+
+/* main */
+.main_container {
+    width: 1220px;
+    margin: 10px 0 10px 0;
+}
+
+.main_item {
+    float: left;
+    overflow: hidden;
+    margin-top: 25px;
+    margin-right: 10px;
+    width: 290px;
+    height: 465px;
+    border: 1px solid #fff;
+}
+
+.main_item:hover {
+    border: 1px solid #b1191a;
+}
+
+.main_item img {
+    width: 100%;
+}
+
+.goods_title {
+    padding: 0 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.goods_price {
+    margin-top: 10px;
+    padding: 0 10px;
+    font-size: 22px;
+    color: #e60012;
+}
+
+.goods_price span {
+    font-size: 14px;
+    color: #a4a4a4;
+    text-decoration: line-through;
+}
+
+.goods_sold {
+    margin-top: 10px;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.bar {
+    display: inline-block;
+    width: 130px;
+    height: 10px;
+    margin: 0 5px;
+    border: 1px solid #e60012;
+    border-radius: 10px;
+}
+
+.bar_in {
+    width: 87%;
+    height: 10px;
+    background-color: #e60012;
+}
+
+.goods_buy {
+    margin-top: 15px;
+    height: 46px;
+    line-height: 46px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    background-color: #b1191a;
+}
+
+/* fixedtool */
+.fixedtool {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    margin-top: -68px;
+    width: 66px;
+    height: 136px;
+    background-color: #e60012;
+}
+
+fixedtool a {
+    display: block;
+}
+
+/* page */
+.page {
+    margin: 50px 0;
+    height: 47px;
+    text-align: center;
+    /* background-color: lightblue; */
+}
+
+.page a {
+    display: inline-block;
+    height: 35px;
+    width: 45px;
+    line-height: 35px;
+    border: 1px solid #eee;
+}
+
+.page .page_pre,
+.page .page_next {
+    width: 60px;
+}
+
+.page .page_current,
+.page .page_more {
+    border: 1px solid transparent;
+}
+.page .page_current{
+    color: #b1191a;
+}
+.page .page_total{
+    margin-left: 10px;
+}
+.page_total input{
+    width: 60px;
+    height: 35px;
+    text-align: center;
+}
+.page_total button{
+    height: 35px;
+    width: 45px;
+}

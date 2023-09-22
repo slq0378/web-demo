@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      var obj = {
+        name: "sss",
+      };
+      function fun(a, b) {
+        console.log(this);
+        console.log("i am fun", a, b);
+      }
+      // call() 方法使用一个指定的 this 值和单独给出的一个或多个参数来调用一个函数。
+      fun.call(obj, 1, 2);
+      // 该方法的语法和作用与 apply() 方法类似，只有一个区别，就是 call() 方法接受的是一个参数列表，而 apply() 方法接受的是一个包含多个参数的数组。
+      fun.apply(obj, [3, 4]);
+      // bind
+      var b = fun.bind(obj, 1, 2); // 此处的f是bind返回的新函数
+      b(); //调用新函数  this指向的是对象o 参数使用逗号隔开
+
+      // 闭包
+      function f1(){ // f1就是闭包函数
+        var num = 10;
+        function f2(){
+          console.log(num); // 10
+        }
+        f2();
+      }
+      f1();
+
+    </script>
+  </body>
+</html>

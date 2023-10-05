@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{msg}}
+      <input type="text" v-model="age" />
+      <input type="text" v-focus v-model="name" />
+    </div>
+    <script>
+      // 自定义指令 v-focus
+      //   全局注册
+      //   Vue.directive("focus", {
+      //     inserted: (el) => {
+      //       console.log("el", el);
+      //       el.focus();
+      //     },
+      //   });
+      new Vue({
+        el: "#app",
+        data: {
+          msg: "111",
+          age: "12",
+          name: "test",
+        },
+        // 局部注册自定义指令v-focus
+        directives: {
+          focus(arg) {
+            return {
+              inserted: (el, binding) => {
+                console.log("binding", binding);
+                el.style = "background:red";
+              },
+            };
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

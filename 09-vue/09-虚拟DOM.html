@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>虚拟DOM</title>
+  </head>
+  <body>
+    <script>
+      /*
+        虚拟DOM和diff算法
+        虚拟DOM是对真实DOM的抽象，以JS对象(VNode节点)作为基础的树，用对象的属性来描述节点，最终可以通过一系列操作使这棵树映射到真实的DOM树上。
+        在JS对象中，虚拟DOM表现为一个Object对象，并且最少包含tag，attrs，children三个属性。
+        创建虚拟DOM是为了更好的将虚拟节点渲染到页面视图中，所以虚拟DOM对象的节点与真实DOM的属性一一对应。
+        数据变化时，会产生新的VNode，然后diff算法就会比较新旧节点，然后更新真实的DOM。
+       
+        diff 算法是一种通过同层的树节点进行比较的高效算法
+        TODO: 后续花时间再研究
+        */
+    </script>
+  </body>
+</html>

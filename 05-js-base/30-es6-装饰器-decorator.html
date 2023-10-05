@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>es6</title>
+  </head>
+  <body>
+    <div>
+      装饰者模式就是一种在不改变原类和使用继承的情况下，动态地扩展对象功能的设计理论。
+    </div>
+    <script>
+      /*
+      ES6中的decorator
+
+      */
+      @testable
+      class MyTestableClass {
+        // ...
+      }
+
+      function testable(target) {
+        target.isTestable = true;
+      }
+
+      MyTestableClass.isTestable; // true
+
+      // @strong
+      // class Soldier {
+      //   constructor(){}
+      // };
+      // function strong(target) {
+      //   target.AK = true;
+      // };
+
+      // // let s = new Soldier()
+      // console.log('s',Soldier);
+    </script>
+  </body>
+</html>

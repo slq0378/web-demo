@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>下拉刷新-上拉加载</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul {
+      }
+      li {
+        height: 400px;
+        background-color: lightblue;
+        border-top: 1px solid red;
+      }
+      button {
+        position: fixed;
+        right: 30px;
+        top: 50px;
+        z-index: 111;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">当前情况</button>
+    <p class="refreshText"></p>
+    <ul id="container">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+    </ul>
+    <p class="loadingText"></p>
+    <script>
+      /*
+      下拉刷新-上拉加载
+      下拉刷新和上拉加载这两种交互方式通常出现在移动端中
+      scrollTop:滚动视窗的高度距离window顶部的距离，它会随着往上滚动而不断增加，初始值是0。
+      clientHeight：固定的值，表示屏幕可视区域的高度。
+      scrollHeight：页面不能滚动时也是存在的，此时scrollHeight等于clientHeight。scrollHeight表示body所有元素的总长度（包括body的padding）。
+
+      由此可得，当界面滚动到底部的时候，scrollTop+clientHeight >= scrollHeight
+      
+      下来刷新
+      通过监听touchstart，touchmove，touchend事件，判断偏移量来实现下来刷新。
+      下拉加载
+      通过 当前的pageY - 初始的Y值，来判断上拉还是下拉
+      */
+      document.getElementById("btn").addEventListener("click", () => {
+        console.log("click");
+      });
+      let container = document.getElementById("container");
+      let refreshText = document.querySelector(".refreshText");
+      let loadingText = document.querySelector(".loadingText");
+      let clientHeight = document.documentElement.clientHeight; //浏览器高度
+      let scrollHeight = document.body.scrollHeight;
+      let scrollTop = document.documentElement.scrollTop;
+      let distance = 50; //距离视图还有50的时候，开始触发
+      if (scrollTop + clientHeight >= scrollHeight) {
+        console.log("load more");
+      }
+      let startPos = 0; // 初始值
+      let transitionHeight = 0; // 移动距离
+      let loadMore = false; // 是否上来加载更多
+      container.addEventListener("touchstart", function (e) {
+        console.log("start", e.touches[0]);
+        startPos = e.touches[0].pageY;
+        container.style.position = "relative";
+        container.style.transition = "transform 0s";
+        loadMore = false;
+      });
+      container.addEventListener("touchmove", function (e) {
+        transitionHeight = e.touches[0].pageY - startPos; // 记录差值
+        console.log("move", transitionHeight);
+        if (transitionHeight > 0 && transitionHeight < 60) {
+          refreshText.innerText = "下拉刷新";
+          container.style.transform = `translateY(${transitionHeight}px)`;
+          if (transitionHeight > 55) {
+            refreshText.innerText = "释放更新";
+          }
+        } else {
+          console.log("loading more");
+          loadingText.style.display = "block";
+          loadingText.innerText = "加载更多";
+          loadMore = true;
+          container.style.transform = `translateY(${transitionHeight}px)`;
+          if (transitionHeight > -55) {
+            refreshText.innerText = "释放加载更多";
+          }
+        }
+      });
+      container.addEventListener("touchend", function (e) {
+        console.log("end");
+        container.style.transition = "transform 0.5s ease 1s";
+        container.style.transform = "translateY(0px)";
+        refreshText.innerText = "更新中...";
+        if (loadMore) {
+          loadingText.innerText = "加载中...";
+        }
+        setTimeout(() => {
+          refreshText.innerText = "";
+          container.style.transition = "transform 0s";
+          loadingText.style.display = "none";
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>

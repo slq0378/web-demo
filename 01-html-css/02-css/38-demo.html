@@ -1,101 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>轮播图</title>
-    <style type="text/css">
-    * {
-        padding: 0;
-        margin: 0;
-    }
-
-    .box {
-        margin: 50px auto;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <style>
+        /*绝对定位+margin:auto*/
+      .box {
         width: 400px;
-        height: 200px;
+        height: 400px;
+        background-color: lightblue;
         position: relative;
-    }
-
-    .box img {
-        width: 100%;
-        height: 100%;
-    }
-
-    .left,
-    .right {
+      }
+      .child {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+    </style> -->
+    <!-- <style>
+        /* 绝对定位+margin:负值，要知道子元素宽高 */
+    .box {
+        width: 400px;
+        height: 400px;
+        background-color: lightblue;
+        position: relative;
+      }
+      .child {
+        width: 50px;
+        height: 50px;
+        background-color: red;
         position: absolute;
         top: 50%;
-        margin-top: -15px;
-        width: 20px;
-        height: 30px;
-        line-height: 30px;
-        color: #fff;
-        background-color: lightblue;
-        text-align: left;
-    }
-
-
-    .left:hover,
-    .right:hover {
-        background-color: lightpink;
-    }
-
-    .left {
-        left: 0;
-        border-radius: 0 15px 15px 0;
-
-    }
-
-    .right {
-        right: 0;
-        border-radius: 15px 0 0 15px;
-        text-align: right;
-    }
-
-    .bottom {
-        position: absolute;
-        width: 70px;
-        height: 13px;
         left: 50%;
-        margin-left: -35px;
-        bottom: 10px;
-        background: rgba(255, 255, 255, 0.3);
-        border: 1px solid #eee;
-        border-radius: 10px;
-    }
+        margin-left: -25px;
+        margin-top: -25px;
+      }
+    </style> -->
+    <!-- <style>
+        /* 绝对定位+transform 不需要知道子元素宽高 */
+    .box {
+        width: 400px;
+        height: 400px;
+        background-color: lightblue;
+        position: relative;
+      }
+      .child {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      } -->
+    <!-- <style>
+      /* table布局 */
+      .box {
+        width: 400px;
+        height: 400px;
+        background-color: lightblue;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
 
-    ul {
-        list-style-type: none;
-    }
-
-    .bottom li {
-        float: left;
-        width: 8px;
-        height: 8px;
-        margin: 2px 3px;
-        background-color: #fff;
-        border-radius: 5px
-    }
-    .bottom .current{
-    	background-color: #ff5000;
-    }
+      }
+      .child {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+      }
+    </style> -->
+    <!-- <style>
+      /* flex布局 */
+      .box {
+        width: 400px;
+        height: 400px;
+        background-color: lightblue;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .child {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+      }
+    </style> -->
+    <style>
+      /* grid布局,注意兼容性问题 */
+    .box {
+        width: 400px;
+        height: 400px;
+        background-color: lightblue;
+        display:grid;
+        justify-content: center;
+        align-items: center;
+      }
+      .child {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+      }
     </style>
-</head>
-
-<body>
+  </head>
+  <body>
     <div class="box">
-        <img src="../images/earth.jpg" alt="">
-        <div class="left">&lt;</div>
-        <div class="right">&gt;</div>
-        <ul class="bottom">
-            <li></li>
-            <li></li>
-            <li class="current"></li>
-            <li></li>
-            <li></li>
-        </ul>
+      <div class="child"></div>
     </div>
-</body>
-
+  </body>
 </html>

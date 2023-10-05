@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>new</title>
+  </head>
+  <body>
+    <div>js中的new</div>
+    <script>
+      /*
+      new操作符用于创建一个给定构造函数的实例对象
+      new 主要工作
+      1、创建一个Object空对象obj。
+      2、将对象与构造函数通过原型链连接起来。
+      3、将构造函数中的this绑定到新建的obj对象上。
+      4、根据构造函数返回值判断，如果原始值则忽略，如果返回值是自定义对象则返回自定义对象，默认返回对象obj。
+
+      */
+      function Person(name) {
+        this.name = name;
+        // 返回基本数据类型，忽略
+        // return 1;
+        // 返回自定义对象
+        // return {
+        //   age: 100,
+        // };
+      }
+      Person.prototype.sayName = function () {
+        console.log("sayName:" + this.name);
+      };
+      const p1 = new Person("wang");
+      console.log(p1);
+      p1.sayName(); // p1.sayName is not a function
+      // 重写new操作符
+      function myNew(Fun, ...args) {
+        // 1创建一个Object空对象obj。
+        const obj = {};
+        // 2将对象与构造函数通过原型链连接起来。
+        obj.__proto__ = Fun.prototype;
+        // 3将构造函数中的this绑定到新建的obj对象上。
+        let result = Fun.apply(obj, args);
+        // 4根据构造函数返回值判断
+        return result instanceof Object ? result : obj;
+      }
+      let p2 = myNew(Person, "song");
+      console.log(p2);
+    </script>
+  </body>
+</html>

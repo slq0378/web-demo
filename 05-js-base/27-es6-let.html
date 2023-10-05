@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>es6</title>
+  </head>
+  <body>
+    <script>
+      // ES6
+      function test() {
+        // var a = 10;
+        // 局部作用域
+        a = 2;
+        console.log("-----", window.a); //undefined
+      }
+      // 全局作用域,挂在window对象上，污染作用域
+      var b = 10;
+      console.log(window.b); // 10
+      console.log(window.a); // undefined
+
+      console.log(c); //undefined
+      var c = 10;
+      /*
+    变量提升 
+    实际编译代码
+    var c;
+    console.log(c)
+    c = 10
+    */
+      //  只在let命令所在的代码块内有效
+      let d = 10;
+      console.log("d", d);
+      console.log(window.d);
+      {
+        console.log(f); // undefined
+        let f;
+        // console.log("f", f); //  Cannot access 'f' before initialization
+      }
+      //  const 常量 只读
+      const e = 44;
+      // e = 55;// Assignment to constant variable.
+    </script>
+  </body>
+</html>

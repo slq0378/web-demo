@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作用域</title>
+  </head>
+  <body>
+    <div>
+      作用域
+    </div>
+   <script>
+    // 'use strict';
+    /*
+      作用域：变量上下文和函数生效的区域，决定了变量和函数的可见范围
+      全局作用域
+      函数作用域
+      块级作用域 es6引入 let/const {}
+      
+      词法作用域 : 又叫静态作用域，变量被创建时就确定好了，而非执行局阶段确定的，js遵循词法作用域。
+
+      作用域链
+      当在js中使用一个变量的时候，首选js引擎会尝试在当前作用域下寻找该变量，如果没找到，再到它的上层作用域查找，依次类推直到找到该变量或是已经到了全局作用域。
+      如果在全局作用域仍然找不到，它就会直接报错（ a is not defined）。
+    */
+(function test() {
+  console.log('a',a);// a is not defined
+})()
+
+   </script>
+  </body>
+</html>

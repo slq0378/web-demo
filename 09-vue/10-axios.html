@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>axios</title>
+  </head>
+  <body>
+    <script>
+      /*
+      axios
+      axios 是一个轻量的http客户端
+      基于XMLHttpRequest服务来执行HTTP请求，支持配置，支持Promise，支持浏览器和Nodejs端。
+      支持拦截请求和响应，
+      支持取消请求
+      自动转换json数据
+      客户端支持防御XSRF
+
+      封装axios，可以统一设置baseurl，超时时间，拦截请求和响应，设置请求头等。
+      封装请求拦截器器，响应拦截器 axios.interceptors.request.use，axios.interceptors.response.use
+      可以封装一个通用的网络请求工具类，把常用的接口请求统一管理起来。
+      
+      */
+        // 简易版Axios
+        class Axios{
+            constructor(){
+                this.interceptors = {
+                    request:new InterceptorsManager(),
+                    response:new InterceptorsManager()
+                }
+            }
+
+            request(config){
+                // this.sendAjax(config)
+                // 拦截器和请求组装队列
+                let chain = [this.sendAjax(config).bind(this),undefined]
+                // 请求拦截
+                this.interceptors.request.handles.forEach(interceptor=>{
+                    interceptor.unshift(interceptor.fullfield,interceptor.rejected)
+                })
+                // 响应拦截
+                this.interceptors.response.handles.forEach(interceptor=>{
+                    chain.push(interceptor.fullfield,interceptor.rejected)
+                })
+                // 执行队列。每次执行一对，并给promise赋最新的值
+                let promise = Promise.resolve(config);
+                while(chain.length>0){
+                    promise = promise.then(chain.shift(),chain.shift());
+                }
+                return promise;
+            }
+            sendAjax(config){
+                return new Promise(resolve=>{
+                    const {url='',method ='get',data={}} = config;
+                    // 发送ajax请求
+                    const xhr = new XMLHttpRequest();
+                    xhr.open(method,url,true);
+                    xhr.onload = function () {
+                        resolve(xhr.responseText)
+                    }
+                    xhr.send(data)
+                })
+            }
+        }
+        // ----------------------------
+        // 导出axios
+        // 实现axios({})方式请求
+        function CreateAxiosFn() {
+            let axios = new Axios();
+            let req = axios.request.bind(axios);
+            // 混入方法， 处理axios的request方法，使之拥有get,post...方法
+            utils.extend(req,Axios.prototype,axios);
+            // 把Axios上的方法和属性搬到request过去
+            utils.extend(req,axios);
+            return req;
+        }
+        let axios = CreateAxiosFn();
+
+        // ----------------------------
+        // 实现axios.get() 方式请求
+        const methodsArray = ['get','post','delete','put','delete','options','head','patch']
+        methodsArray.forEach(met=>{
+            Axios.prototype[met] = function(){
+                if(['get', 'delete', 'head', 'options'].includes(met)){
+                    return this.request({
+                        method:met,
+                        url:arguments[0],
+                        ...arguments[1]||{}
+                    })
+                }else{
+                    // 3个参数
+                    return this.request({
+                        method:met,
+                        url:arguments[0],
+                        data:arguments[1]||{},
+                        ...arguments[2]||{}
+                    })
+                }
+            }
+        })
+        
+        // ----------------------------
+        // 工具类，将方法b混入到a，并修改this指向
+        const utils = {
+            extend(a,b,context){
+                for(let key in b){
+                    if(b.hasOwnProperty(key)){
+                        if(typeof b[key] == 'function'){
+                            a[key] = b[key].bind(context)
+                        }else{
+                            a[key] = b[key]
+                        }
+                    }
+                }
+            }
+        }
+        // ----------------------------
+        // 构建拦截器的构造函数
+        class InterceptorsManager{
+            constructor(){
+                this.handles = [];
+            }
+            use(fullfield,rejected){
+                this.handles.push({
+                    fullfield,rejected
+                })
+            }
+        }
+
+    </script>
+  </body>
+</html>

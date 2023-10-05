@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>修饰符</title>
+    <script src="../js/vue.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+  </head>
+  <body>
+    <div id="app">
+      <div>msg lazy:{{msg}}</div>
+      <input type="text" v-model.lazy="msg" />
+      <div>msg trim:{{msg2}}</div>
+      <input type="text" v-model.trim="msg2" />
+      <div>msg number:{{msg3}}</div>
+      <input type="text" v-model.number="msg3" />
+      <hr />
+      <div @click="clickFather">
+        <button @click="clickChild">事件1</button>
+      </div>
+      <div @click="clickFather">
+        <button @click.stop="clickChild">事件-stop-阻止冒泡</button>
+      </div>
+      <form @submit.prevent="onSubmit">
+        <div>form prevent</div>
+        <button type="submit">提交</button>
+      </form>
+      <div @click.self="click1" style="border: 1px solid red">
+        1111
+        <div @click="click2" style="border: 1px solid green">2222</div>
+        <div style="border: 1px solid blue">222-2222</div>
+      </div>
+      <hr />
+      <button @click.once="clickOnce">once</button>
+      <hr />
+      <div @click.capture="shout(1)">
+        obj1
+        <div @click.capture="shout(2)">
+          obj2
+          <div @click="shout(3)">
+            obj3
+            <div @click="shout(4)">obj4</div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div>
+        <button @click.left="shout(1)">ok</button>
+        <button @click.right="shout(1)">ok</button>
+        <button @click.middle="shout(1)">ok</button>
+      </div>
+    </div>
+    <script>
+      /*
+      表单修饰符
+      lazy 在失去焦点时更新数据，而不是立即更新数据，也就是在change事件之后再同步。
+      trim 自动取出字符串头部、尾部空格。
+      number 自动将用户输入转换成数值类型，如果parseFloat无法解析就返回原始值。
+      事件修饰符
+      对事件捕获以及目标进行处理
+      stop 阻止事件冒泡 == event.stopPropagation
+      prevent 阻止默认事件 == event.preventDefault
+      self 只在当前元素上触发事件
+      once 只触发一次
+      capture 在事件的捕获阶段触发父级元素的事件（带capture）
+      passive  会告诉浏览器你不想阻止事件的默认行为。passive和prevent冲突，不能同时绑定在一个监听器上。
+      native  让组件变得像html内置标签那样监听根元素的原生事件，否则组件上指挥监听自定义事件。
+      鼠标按键修饰符
+      left 左键点击
+      right 右键点击
+      middle 中键点击
+      键值修饰符
+      修饰键盘事件，onkeyup,onkeydown
+      普通键：enter、tab、delete、space、esc、up...
+      系统修饰键：ctrl、alt、meta、shift...
+      v-bind修饰符
+      修饰属性
+      async 能对props进行一个双向绑定，对应update:value方法
+      prop 设置自定义标签属性，避免暴露数据，防止污染HTML结构
+      camel 将命名变为驼峰命名法，如将view-Box属性名转换为 viewBox
+      <svg :viewBox="viewBox"></svg>
+
+      */
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          msg: "",
+          msg2: "",
+          msg3: "",
+        },
+        methods: {
+          changed(val) {
+            console.log("changed", val);
+          },
+          clickFather() {
+            console.log("clickFather");
+          },
+          clickChild() {
+            console.log("clickChild");
+          },
+          onSubmit() {
+            console.log("onSubmit");
+          },
+          click1() {
+            console.log("click1");
+          },
+          click2() {
+            console.log("click2");
+          },
+          clickOnce() {
+            console.log("clickOnce");
+          },
+          shout(index) {
+            console.log("shout", index);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

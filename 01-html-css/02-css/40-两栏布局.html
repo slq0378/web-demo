@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <style>
+      /* float实现 */
+      .box {
+        overflow: hidden; /*添加BFC，防止后面元素跑到前面*/
+      }
+      .left {
+        background-color: lightcoral;
+        float: left;
+        width: 200px;
+        height: 400px;
+      }
+      .main {
+        background-color: lightblue;
+        height: 100%;
+        height: 200px;
+      }
+    </style> -->
+    <style>
+      /* flex实现 */
+      .box {
+        display: flex;
+      }
+      .left {
+        width: 200px;
+        height: 400px;
+        background-color: lightcoral;
+      }
+      .main {
+        flex: 1;
+        background-color: lightblue;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+    两栏布局非常常见，往往是以一个定宽栏和一个自适应的栏并排展示存在。
+
+   -->
+    <div class="box">
+      <div class="left">1</div>
+      <div class="main">2</div>
+    </div>
+  </body>
+</html>

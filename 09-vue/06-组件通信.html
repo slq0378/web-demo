@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>组件间通讯</title>
+    <script src="../js/vue.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+    <style>
+      div {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #app {
+        border: 1px solid lightblue;
+      }
+      .level1 {
+        border: 1px solid red;
+      }
+      .level2 {
+        margin-left: 100px;
+        border: 1px solid blue;
+      }
+      .level3 {
+        margin-left: 100px;
+        border: 1px solid green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <level1 class="level1"> </level1>
+    </div>
+    <script>
+      function test1(params) {
+        // 事件总线
+        class Bus {
+          constructor() {
+            this.callbacks = {};
+          }
+          $on(eventName, callback) {
+            this.callbacks[eventName] = this.callbacks[eventName] || [];
+            this.callbacks[eventName].push(callback);
+          }
+          $emit(eventName, args) {
+            if (this.callbacks[eventName]) {
+              this.callbacks[eventName].forEach((fn) => fn(args));
+            }
+          }
+        }
+        // Vue.prototype.$bus = new Bus();
+
+        Vue.component("child", {
+          props: {
+            name: String,
+          },
+          template: `
+        <div>
+          <button @click="childClick">儿子</button>
+          <slot></slot>  
+        </div>
+        `,
+          data() {
+            return {
+              age: 12,
+              card: "123u8123123721321",
+            };
+          },
+          methods: {
+            childClick() {
+              // console.log("childClick", this.name);
+              // this.$emit("sonClick", "213");
+              // this.$emit("add", "good");
+              // this.$bus.$emit("hello", "老二你好");
+              console.log(this);
+              console.log(this.$root);
+              console.log(this.$parent);
+              this.$root.$emit("testData", "add 99999999");
+              // this.$parent.emit('testData','add 99999999')
+            },
+          },
+        });
+        Vue.component("child2", {
+          props: {
+            name: String,
+          },
+          template: `
+        <div>
+          <button @click="childClick">儿子</button>
+          <slot></slot>  
+        </div>
+        `,
+          data() {
+            return {
+              age: 12,
+              card: "123u8123123721321",
+            };
+          },
+          mounted() {
+            // this.$bus.$on("hello", (args) => {
+            //   console.log("收到信息：", args);
+            // });
+            console.log("---------------");
+            console.log(this);
+            console.log(this.$root);
+            console.log(this.$parent);
+            this.$root.$on("testData", (args) => {
+              console.log("收到信息：", args);
+            });
+            // this.$parent.on('testData',(args)=>{
+            //   console.log("收到信息：", args);
+            // })
+          },
+          methods: {
+            childClick() {
+              console.log("childClick", this.name);
+              // this.$emit("sonClick", "213");
+              // this.$emit("add", "good");
+            },
+          },
+        });
+
+        var vm = new Vue({
+          el: "#app",
+          data: {
+            msg: "hello Vue",
+          },
+          mounted() {
+            console.log(this.$refs["childRef"]);
+          },
+          methods: {
+            fartherClick() {
+              console.log("son click");
+            },
+          },
+        });
+      }
+      // $attr $listener
+      function test2() {
+        Vue.component("level1", {
+          template: `
+            <div>
+              {{foo}}
+            <level2 class="level2" :bar="bar" foo="foo" @updateFoo="update"/>
+            </div>
+          `,
+          inheritAttrs: false,
+          data() {
+            return {
+              foo: "foo",
+              bar: "bar",
+            };
+          },
+          methods: {
+            update(val) {
+              console.log("update", val);
+              this.foo = val;
+            },
+          },
+        });
+        Vue.component("level2", {
+          template: `
+          <div>
+            <p>foo:{{ foo }}</p>
+            <p>attrs: {{ $attrs }}</p>
+              <level3 class="level3" v-bind="$attrs" v-on="$listeners"/>
+            </div>
+          `,
+          props: ["foo"],
+          inheritAttrs: false,
+        });
+
+        Vue.component("level3", {
+          props: ["bar"],
+          template: `
+          <div>
+            <p>bar:{{ bar }}</p>
+            <button @click="sayToLevel1">传递给Level1</button>  
+          </div>
+          `,
+          methods: {
+            sayToLevel1() {
+              this.$emit("updateFoo", "i am new level3");
+            },
+          },
+        });
+        var vm = new Vue({
+          el: "#app",
+        });
+      }
+      // test2();
+      // Provide inject
+      function test3() {
+        Vue.component("level1", {
+          template: `
+            <div>
+              foo:{{foo}}
+              bar:{{bar}}
+              <level2 class="level2"/>
+            </div>
+          `,
+          data() {
+            return {
+              foo: "foo",
+              bar: "bar",
+            };
+          },
+          provide() {
+            return {
+              foo: this.foo,
+              bar: this.bar,
+            };
+          },
+        });
+        Vue.component("level2", {
+          template: `
+          <div>
+            level2
+            <p>foo:{{ foo }}</p>
+              <level3 class="level2"/>
+            </div>
+          `,
+          inject: ["foo"],
+        });
+
+        Vue.component("level3", {
+          template: `
+          <div>
+            level3
+            <p>bar:{{ bar }}</p>
+          </div>
+          `,
+          inject: ["bar"],
+        });
+        var vm = new Vue({
+          el: "#app",
+        });
+      }
+      test3();
+    </script>
+
+    <!-- 
+      组件间通信
+      1、父到子 props
+      2、子到父 $emit
+      3、父到子 ref
+      4、兄弟组件 EventBus 事件总线
+      5、兄弟组件 $parent 或$root  事件委托
+      6、祖先传递数据给子孙 $attr $listener,$attr 向下传递数据，$listener向上传递事件
+      7、Provide 与 Inject
+      8、vuex 状态管理
+     -->
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>递归</title>
+  </head>
+  <body>
+    <div>递归</div>
+    <script>
+      /*
+      尾递归，即在函数尾位置调用自身（或是一个尾调用本身的其他函数等等）。尾递归也是递归的一种特殊情形。尾递归是一种特殊的尾调用，即在尾部直接调用自身的递归函数
+
+      尾递归在普通尾调用的基础上，多出了2个特征：
+
+      在尾部调用的是函数自身
+      可通过优化，使得计算仅占用常量栈空间
+       */
+      // x的n次方
+      function pow(x,n) {
+        if(n==1){
+          return x;
+        }else{
+          return x*pow(x,n-1)
+        }
+      }
+      console.log(pow(2,2));
+      console.log(pow(2,10));
+    </script>
+  </body>
+</html>

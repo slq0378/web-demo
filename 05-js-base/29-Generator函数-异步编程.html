@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>es6 Generator 函数是 ES6 提供的一种异步编程解决方案</title>
+  </head>
+  <body>
+    <div>Generator 函数是 ES6 提供的一种异步编程解决方案</div>
+    <script>
+      /*
+      Generator 函数是 ES6 提供的一种异步编程解决方案
+      执行Generator函数会返回一个遍历器对象，可以依次遍历Generator函数内部的每一个状态。
+      形式上Generator是个普通函数，但是有两个特征：
+      1、function 关键字和函数名之间有个*
+      2、函数题内部使用yield表达式，定义不同的内部状态
+
+      */
+      //  generator 函数,通过next获取状态
+      // 当 next 传入参数的时候，该参数会作为上一步yield的返回值。
+      function* func() {
+        console.log("one");
+        yield "1";
+        console.log("two");
+        yield "2";
+        console.log("three");
+        return "3";
+      }
+      let f = func();
+      let a = f.next();
+      console.log("a", a);
+      let b = f.next();
+      console.log("b", b);
+      let c = f.next();
+      console.log("c", c);
+      console.log("-------------");
+      function* sendParameter() {
+        console.log("start");
+        var x = yield "2";
+        console.log("one:" + x);
+        var y = yield "3";
+        console.log("two:" + y);
+        return "total:" + (x + y);
+      }
+      console.log("无参数 -------------");
+      let sendP2 = sendParameter();
+      console.log(sendP2.next()); // start
+      console.log(sendP2.next()); // one undefined
+      console.log(sendP2.next()); // two undefined
+      console.log("有参数 -------------");
+      let sendP = sendParameter();
+      console.log(sendP.next()); // start
+      console.log(sendP.next(10)); // one 10
+      console.log(sendP.next(20)); // two 20
+      console.log("-------------");
+      // 还可以使用 for... of 循环遍历 Generator 函数生产的 Iterator 对象。
+      let sendP3 = sendParameter();
+      for (const value of sendP3) {
+        console.log("---", value);
+      }
+      // yield* 表达式用来在一个 Generator 函数里面 执行 另一个 Generator 函数
+      console.log("yield* 表达式 -------------");
+      function *foo(){
+        yield 'a'
+        yield 'b'
+      }
+      function *bar() {
+        yield* foo()
+        yield 'c'
+        yield 'd'
+      }
+      let ite = bar()
+      for (const value of ite) {
+          console.log('value',value);
+      }
+
+    </script>
+  </body>
+</html>

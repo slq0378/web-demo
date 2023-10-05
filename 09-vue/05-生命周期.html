@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.min.js"></script>
+    <style>
+      .active {
+        background-color: lightblue;
+        width: 100px;
+        height: 100px;
+      }
+      .active2 {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div>的弟弟</div>
+      <ul>
+        <li v-for="(item,index) in datas" :key="index">{{item}}</li>
+      </ul>
+      <button @click="update">强制刷新</button>
+    </div>
+
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          datas: ["11111", "22222", "33333"],
+        },
+        beforeCreate() {
+          console.log("beforeCreate");
+        },
+        created() {
+          console.log('created');
+        },
+        mounted() {
+          console.log('mounted');
+        },
+        beforeUpdate() {
+          console.log('beforeUpdate');  
+        },
+        updated() {
+          console.log('updated');
+        },
+        beforeDestroy() {
+          console.log('beforeDestory');
+        },
+        destroyed() {
+          console.log('destoryed');
+        },
+        methods: {
+          update(){
+            console.log('update click');
+            this.datas.push('4444')// 触发beforeUpdate，updated
+          }
+        },
+      });
+    </script>
+  </body>
+</html>

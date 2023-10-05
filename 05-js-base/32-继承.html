@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js中的继承</title>
+  </head>
+  <body>
+    <div>js中的继承</div>
+    <script>
+      /*
+      js继承
+      原型链继承
+      构造函数继承（借助call）
+      组合继承
+      原型式继承
+      寄生式继承
+      寄生组合式继承
+      class extends 
+       */
+      // 原型链继承:将子类的原型指向父类,可以继承父类的属性和方法，但是父类的属性和方法是公共的
+      function inheritProtoChain() {
+        function Parent() {
+          this.name = 'parent1'
+          this.play = [1,2,3]
+        }
+        function Child(){
+          this.type='child2'
+        }
+        // 原型链继承 Parent，可以继承父类的属性和方法，但是父类的属性和方法是公共的
+        Child.prototype = new Parent()
+        console.log(new Child());
+        let s1 = new Child()
+        let s2 = new Child()
+        s1.play.push(4)
+        console.log(`s1:${s1.play}---s2${s2.play}`);
+      }
+      // inheritProtoChain()
+      // 构造函数继承（借助call）,只能继承父类的属性和方法，不能继承原型的属性和方法
+      function inheritConstructor() {
+        function Parent(){
+          this.name = 'parent1'
+        }
+        Parent.prototype.getName = function () {
+          return this.name
+        }
+        function Child() {
+          // 构造函数继承,将父类name继承过来，但是getName方法无法继承过来，
+          // 也就是只能继承父类的属性和方法，不能继承原型的属性和方法
+          Parent.call(this);
+          this.type = 'child'
+        }
+        let child = new Child()
+        child.name = 'child'
+        console.log(child);
+        child.say()
+      }
+      // inheritConstructor()
+      // 组合继承
+      // 1构造函数继承+2原型链继承，关键一步是改变子类原型对象的构造函数指向，
+      // 唯一的问题就是构造函数多执行了一次，带来了多余的性能消耗
+      function inheritGroup() {
+        function Parent() {
+          this.name = 'parent group'
+          this.play = [1,2,3]
+        }
+        Parent.prototype.getName = function () {
+          return this.name
+        }
+        function Child(){
+          // 1构造函数继承，把父类实例属性和方法继承过来
+          Parent.call(this)
+          this.type = 'child group'
+        }
+        // 2原型链继承
+        Child.prototype = new Parent()
+        // 3手动改变原型对象构造函数指向，默认指向Parent
+        Child.prototype.constructor = Child
+        let s1 = new Child()
+        let s2 = new Child()
+        console.log(s1);
+        s1.play.push(4)
+        console.log(s1.play,s2.play);
+        console.log(s1.getName());
+        console.log(s2.getName())
+      }
+      // inheritGroup()
+      // 原型式继承-Object.create,浅拷贝，引用对象指向同一个地址，可以互相修改。
+      function inheritPrototype() {
+        let parent = {
+          name:'parent',
+          friends:['p1','p2','p3'],
+          getName:function(){
+            return this.name
+          }
+        }
+        // 拷贝对象
+        let person = Object.create(parent)
+        person.name="wang"
+        person.friends.push('wang')
+        console.log(person);
+
+        let person2= Object.create(parent)
+        person2.friends.push('xiao bai')
+        console.log(person2);
+      }
+      // inheritPrototype()
+      // 寄生式继承-基于原型式继承，添加一些方法,问题一样，浅拷贝
+      function inheritParasitic() {
+        let parent = {
+          name:'parent',
+          friends:['p1','p2','p3'],
+          getName:function(){
+            return this.name
+          }
+        }
+        function clone(source) {
+          let clone = Object.create(source)
+          clone.getFriends = function () {
+            return this.friends
+          }
+          return clone;
+        }
+        // 拷贝对象
+        let person = clone(parent)
+        person.name="wang"
+        person.friends.push('wang')
+        console.log(person.getFriends());
+
+        let person2= clone(parent)
+        person2.friends.push('xiao bai')
+        console.log(person2.getFriends());
+      }
+      // inheritParasitic()
+      // 寄生组合式继承-最优解，
+      // 寄生式继承 + 组合继承
+      function inheritParasiticGroup() {
+        // 拷贝函数-寄生式继承
+        function clone(parent,child) {
+          // 减少组合继承两次调用构造函数
+          // 继承原型对象的公共属性和方法
+          child.prototype = Object.create(parent.prototype)
+          // 改变子类原型对象构造函数的指向为自己
+          child.prototype.constructor = child
+        }
+        function Parent(){
+          this.name = 'parent'
+          this.play = [1,2,3]
+        }
+        Parent.prototype.getName = function (){
+          return this.name;
+        }
+        function Child(){
+          // 继承实例属性和方法，组合继承
+          Parent.call(this)
+          this.friends = 'child'
+        }
+        // 
+        clone(Parent,Child)
+        Child.prototype.getFriends = function (){
+          return this.friends
+        }
+        let person  = new Child()
+        console.log(person);
+      }
+      inheritParasiticGroup()
+      // es6 class-extends -基于寄生组合式继承实现
+      function inheritClass() {
+        class Person{
+          constructor(name){
+            this.name = name;
+          }
+          // 原型方法 等价于 Person.prototype.getName 
+          getName = function () {
+            return this.name
+          }
+        }
+        class Admin extends Person{
+          constructor(name,role){
+            super(name)
+            this.role = role
+          }
+        }
+        let root = new Admin('song','admin')
+        console.log(root,root.getName());
+      }
+      inheritClass()
+    </script>
+  </body>
+</html>

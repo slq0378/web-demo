@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过滤器 filter</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>{{msg | filterNumber('xiaowang',12)}} </div>
+        <input v-bind:value="msg | filterNumber"></input>
+    </div>
+    <script>
+        /*
+        过滤器 filter
+        过滤器不改变原始数据，只是对数据进行加工再返回，常见文本格式化。
+        Vue3中已废弃filter，可以用computed 替换
+        
+        两种过滤器注册方式
+        1、全局过滤器 Vue.filter('name',(val)=>val)
+        2、局部过滤器 组件配置对象 { filter:{ myFilter(val){return val} } }
+        3、当全局过滤器和局部过滤器重名时，会采用局部过滤器
+
+        两种使用方式 
+        1、花括号方式  <div>{{msg | filterNumber | filterB('xiao',12)}} </div>
+        2、v-bind方式<input v-bind:value="msg | filterNumber"></input>
+        3、过滤器可以连接多个，并且可以带参数,执行顺序从左往右。
+
+        */ 
+
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'sdfdsf1222aaa'
+            },
+            filters:{
+                filterNumber(val,name,age){
+                    console.log(`${val}--${name}--${age}`);
+                    return val.replace(/\d/g,'')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

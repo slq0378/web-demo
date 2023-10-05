@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>es6 数组</title>
+  </head>
+  <body>
+    <div>
+      111
+      <div>222</div>
+    </div>
+    <script>
+      // es6 新增了一些数组扩展
+      console.log(...[1, 2, 3]);
+      console.log(0, ...[1, 2, 3], 4);
+      console.log(document.querySelectorAll("div"));
+      console.log(...document.querySelectorAll("div"));
+
+      // 数组复制
+      let a1 = [1, 2];
+      let [...a2] = a1;
+      console.log("a2:", a2);
+      let a3 = [3, 4];
+      let a4 = [...a1, ...a3];
+      console.log("a4:", a4);
+      a1[0] = 111;
+      console.log("修改a1，a4:", a4);
+
+      // 浅拷贝
+      let name = ["s1", "s2"];
+      let name2 = [name, "s3", "s4"];
+      let name3 = [...name2, "s5"];
+      console.log("name3", name3);
+      name[0] = "s1-1";
+      console.log("修改name，name3", name3);
+
+      // 解析赋值，rest只能放在最后一个参数
+      let [first, ...rest] = [1, 2, 3, 4, 5, 6];
+      console.log("first", first);
+      console.log("rest", rest);
+      // 字符转数组
+      console.log([..."dog"]);
+
+      // 类数组、可遍历对象 转换成数组
+      let nodeList = document.querySelectorAll("div");
+      console.log([...nodeList]);
+      let map = new Map([
+        [1, "111"],
+        [2, "222"],
+        [3, "333"],
+      ]);
+      console.log([...map.keys()]);
+      console.log([...map.values()]);
+      console.log('-------------');
+      // 构造函数新增方法 Array.from Array.of
+      let arrayLike = {
+        '0':'a',
+        '1':'b',
+        length:2
+      }
+      console.log(Array.from(arrayLike));
+      console.log(Array.of(1,2,3));
+      console.log(Array.of());
+      console.log(Array.of(5));
+
+    </script>
+  </body>
+</html>

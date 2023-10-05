@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 错误处理</title>
+    <script src="../js/vue.js"></script>
+  </head>
+  <body>
+    <template>222</template>
+    <div id="app">
+      <div>{{msg}}</div>
+      <father></father>
+    </div>
+    <script>
+      Vue.component("father", {
+        template: `
+            <div>
+                <button @click="clickMe">老子来了</button>
+                <child>2</child>
+            </div>
+            `,
+        methods: {
+          clickMe() {
+            console.log("老子来了");
+          },
+        },
+        errorCaptured: (err, vm, info) => {
+          console.log("errorCaptured-----------");
+          console.log("err:", err);
+          console.log("vm", vm);
+          console.log("info", info);
+        //  默认会传递到全局错误函数，返回false组织传播
+          return false;
+        },
+      });
+      Vue.component("child", {
+        template: `<div>
+                <button @click="clickMe">儿子来了</button>
+                </div>
+            `,
+        methods: {
+          clickMe() {
+            console.log("儿子来了", fff);
+          },
+        },
+      });
+      // 全局捕获错误
+      Vue.config.errorHandler = (err, vm, info) => {
+        // handle error
+
+        console.log("err:", err);
+        console.log("vm", vm);
+        console.log("info", info);
+      };
+      var app = new Vue({
+        el: "#app",
+        data: {
+          msg: "Hello Vue!",
+        },
+        methods: {
+          clickMe() {
+            this.fff = "222";
+            console.log(ddd);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
